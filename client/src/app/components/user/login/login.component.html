@@ -1,0 +1,39 @@
+<section id="login" class="mb-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_login">
+          <div class="card">
+            <div class="card-body text-center">
+              <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+                <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Por favor ingresa sus datos</h1>
+                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                  Something is wrong!
+                </div>
+                <div class="form-group">
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Correo Electronico" [(ngModel)]="user.email" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" [(ngModel)]="user.password"
+                    required>
+                </div>
+                <button type="submit" class="btn btn-lg btn-dark btn-block">Inicia</button>
+                <div class="form-group">
+                  <a routerLink="/user/register" class="form-control login-user">Eres Nuevo ?</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copyright">
+    <div class="container">
+   <p> © 2018 Copyright Text - Autoria II</p>
+    </div>
+  </div>
+</footer>
