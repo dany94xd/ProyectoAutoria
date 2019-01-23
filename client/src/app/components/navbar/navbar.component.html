@@ -17,6 +17,14 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!isLogged">
+            <a class="nav-link" routerLink="/user/register">Nosotros
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="!isLogged">
+              <a class="nav-link" routerLink="/user/register">Contáctanos
+              </a>
+            </li>
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/user/register">Crea una cuenta |
         </a>
