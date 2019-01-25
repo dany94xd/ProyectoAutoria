@@ -24,6 +24,8 @@ import { TruncateTextPipe } from './pipes/truncate-text.pipe';
 // Externals
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ListEventosComponent } from './components/admin/list-eventos/list-eventos.component';
+import { DetailsEventoComponent } from './components/details-evento/details-evento.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +36,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HeroComponent,
     DetailsBookComponent,
     ListBooksComponent,
+    ListEventosComponent,
+    DetailsEventoComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
     Page404Component,
     ModalComponent,
-    TruncateTextPipe
+    TruncateTextPipe,
+    ListEventosComponent,
+    DetailsEventoComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule],
   providers: [DataApiService],

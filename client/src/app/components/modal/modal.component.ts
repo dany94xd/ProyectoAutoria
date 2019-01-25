@@ -28,4 +28,14 @@ export class ModalComponent implements OnInit {
     }
   }
 
+onSaveEvento(eventoForm:NgForm):void{
+  if(eventoForm.value.eventoId == null){
+    this.dataApiService.saveEvento(eventoForm.value).subscribe(evento=>location.reload());
+
+  }else{
+    this.dataApiService.updateEvento(eventoForm.value).subscribe(evento=>location.reload());
+  }
+}
+
+
 }

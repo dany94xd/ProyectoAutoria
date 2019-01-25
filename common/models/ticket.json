@@ -1,0 +1,44 @@
+{
+  "name": "ticket",
+  "plural": "tickets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idticket": {
+      "type": "string",
+      "required": true
+    },
+    "idcuento": {
+      "type": "string",
+      "required": true
+    },
+    "idprecio": {
+      "type": "string",
+      "required": true
+    },
+    "idtarifa": {
+      "type": "string",
+      "required": true
+    },
+    "idasiento": {
+      "type": "string",
+      "required": true
+    },
+    "valor": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "codigo": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,32 @@
+{
+  "name": "precio",
+  "plural": "precios",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idprecio": {
+      "type": "string",
+      "required": true
+    },
+    "idevento": {
+      "type": "string",
+      "required": true
+    },
+    "idlocalidad": {
+      "type": "string",
+      "required": true
+    },
+    "valor": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

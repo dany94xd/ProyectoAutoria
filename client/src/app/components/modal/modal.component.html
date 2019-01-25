@@ -63,3 +63,115 @@
     </div>
   </div>
 </div>
+
+
+<!--evento-->
+
+<div id="modalEvento" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<h1>hola putos</h1>
+
+    <div class="modal-dialog modal-lg" role="document">
+
+       <div class="modal-content" >
+        
+          <div class="modal-header">
+              <h5 class="modal-title" 
+              id="exampleModalLabel">{{!this.dataApiService.selectedEvento.id ? 'New Evento' : 'Update Evento'}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+
+
+          <div class="modal-body">
+
+            <form class="form-evento" #formEvento="ngForm" (ngSubmit)="onSaveEvento(formEvento)">
+              <input type="hidden" id="eventoId" name="eventoId" class="form-control" [(ngModel)]="this.dataApiService.selectedEvento.id">
+              <div class="form-group">
+                  <label for="titulo">Titulo</label>
+                  <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo" [(ngModel)]="this.dataApiService.selectedEvento .titulo">
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6" >
+                    <label for="fecha">Fecha</label>
+                    <input type="date"  id="fecha" name="fecha" class="form-control" 
+                    placeholder="elija fecha del evento" [(ngModel)]="this.dataApiService.selectedEvento.fecha">
+                  </div>
+
+
+                  <div class="form-group col-md-6">
+                    <label for="hora">Hora</label>
+                    <input type="text" id="hora" name="hora" class="form-control"
+                     placeholder="elija la hora" [(ngModel)]="this.dataApiService.selectedEvento.hora">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="estado">Estado</label>
+                    <select  name="estado" id="estado"   class="form-control"
+                      [(ngModel)]="this.dataApiService.selectedEvento.estado">
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
+                  </div>
+
+
+                  <div class="form-group col-md-6">
+                    <label for="caracter">Caracter</label>
+                    <input type="text" id="caracter" name="caracter"  class="form-control"
+                    placeholder="eljia caracter" [(ngModel)]="this.dataApiService.selectedEvento.caracter">
+                  </div>
+
+                  <div class="form-group col-md-6" >
+                    <label for="idevento">Evento</label>
+                    <input type="text" id="idevento" name="idevento"
+                    class="form-control"  placeholder="codigo del evento"
+                    [(ngModel)]="this.dataApiService.selectedEvento.idevento" >
+                  </div>
+
+                  <div class="form-group col-md-6" >
+                      <label for="idrecinto">Recinto</label>
+                      <input type="text" id="idrecinto" name="idrecinto" 
+                      class="form-control" placeholder="codigo del Recinto"
+                      [(ngModel)]="this.dataApiService.selectedEvento.idrecinto" >
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="portad">Portada</label>
+                    <input type="text" id="portada" name="portada" class="form-control" placeholder="Portada" [(ngModel)]="this.dataApiService.selectedEvento.portada">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea name="descripcion" id="descripcion" class="form-control" cols="50" rows="4" [(ngModel)]="this.dataApiService.selectedEvento.descripcion"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary float-right">Save Evento</button>
+
+
+
+
+            </form>
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+       </div>
+
+    </div>
+
+
+</div>
+

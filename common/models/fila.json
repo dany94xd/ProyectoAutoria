@@ -1,0 +1,27 @@
+{
+  "name": "fila",
+  "plural": "filas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idfila": {
+      "type": "string",
+      "required": true
+    },
+    "idbloque": {
+      "type": "string",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -3,7 +3,7 @@
 </div>
 
 
-<section id="books">
+<!-- <section id="books">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let book of books">
@@ -31,7 +31,43 @@
         </div>
       </div>
     </div>
+  </div> 
+</section>-->
+
+
+
+<section id="eventos">
+<div class="container">
+   <div class="row">
+     <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let evento of eventos">
+        <div class="card_evento">
+          <div class="card">
+           <div class="card-body text-center">
+              <p>
+                <img class="img-fluid" src="{{evento.portada}}" alt="{{evento.titulo}}">
+              </p>
+                <h4 routerLink="/evento/{{evento.id}}" class="card-title">{{evento.titulo}}</h4>
+              <p class="card-text">
+                {{evento.descripcion | truncateText:20}}
+              </p>
+                <div class="container-precio-idioma">
+              <!-- <p class="badge badge-info">
+                {{book.precio}}€
+              </p>
+              <p class="badge badge-info">
+                {{book.idioma}}
+              </p> -->
+                 </div>
+              <a href="" class="btn btn-block btn-primary" target="_blank">Compra</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+<!-- <h4 routerLink="/evento/{{evento.id}}" class="card-title">{{evento.titulo}}</h4> -->
+
 </section>
 
   <footer>

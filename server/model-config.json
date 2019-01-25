@@ -38,5 +38,33 @@
   "book": {
     "dataSource": "db",
     "public": true
+  },
+  "evento": {
+    "dataSource": "db",
+    "public": true
+  },
+  "recinto": {
+    "dataSource": "db",
+    "public": true
+  },
+  "fila": {
+    "dataSource": "db",
+    "public": true
+  },
+  "bloque": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ticket": {
+    "dataSource": "db",
+    "public": true
+  },
+  "precio": {
+    "dataSource": "db",
+    "public": true
+  },
+  "tarifa": {
+    "dataSource": "db",
+    "public": true
   }
 }
