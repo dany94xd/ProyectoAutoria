@@ -7,6 +7,9 @@ import { BookInterface } from '../models/book-interface';
 
 import { AuthService } from './auth.service';
 import { EventoInterface } from '../models/evento-interface';
+import { RecintoInterface } from '../models/recinto-interface';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +20,9 @@ export class DataApiService {
 
 eventos:Observable<any>;
 evento:Observable<any>;
+
+recintos:Observable<any>;
+recinto:Observable<any>;
 
   public selectedBook: BookInterface = {
     id: null,
@@ -44,9 +50,13 @@ evento:Observable<any>;
    idevento:'',
    idrecinto:''
 
+  };
 
-
-
+  public selectedRecinto:RecintoInterface={
+    idrecinto:null,
+    nombre:'',
+    direccion:'',
+    descripcion:''
   };
 
   headers: HttpHeaders = new HttpHeaders({
@@ -64,6 +74,10 @@ getAllEventos(){
   return this.http.get(url_api);
 }
 
+getAllRecintos(){
+const url_api= `http://localhost:3000/api/recintos`;
+return this.http.get(url_api);
+}
 
   getNotOffers() {
     const url_api = `http://localhost:3000/api/books?filter[where][oferta]=0`;
@@ -77,6 +91,11 @@ getAllEventos(){
   getEventoById(id:string){
     const url_api=`http://localhost:3000/api/eventos/${id}`;
     return (this.evento = this.http.get(url_api))
+  }
+
+  getRecintoById(id:string){
+    const url_api=`http://localhost:3000/api/recintos/${id}`;
+    return (this.recinto = this.http.get(url_api))
   }
 
   getOffers() {
@@ -103,6 +122,14 @@ getAllEventos(){
     .pipe(map(data=>data));
   }
 
+  saveRecinto(recinto:RecintoInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/recintos?access_token=${token}`;
+    return this.http
+    .post<RecintoInterface>(url_api,recinto,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
   updateBook(book) {
     // TODO: obtener token
     // TODO: not null
@@ -123,7 +150,14 @@ updateEvento(evento){
   .pipe(map(data=>data));
 }
 
-
+updateRecinto(recinto){
+  const recintoId= recinto.recintoId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/recintos/${recintoId}/?access_token=${token}`;
+  return this.http
+  .put<RecintoInterface>(url_api,recinto ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
   deleteBook(id: string) {
     // TODO: obtener token
     // TODO: not null
@@ -145,5 +179,11 @@ deleteEvento(id:string){
   .pipe(map(data=>data));
 }
 
-
+deleteRecinto(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/recintos/${id}/?access_token=${token}`;
+  return this.http
+  .delete<RecintoInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 }

@@ -37,5 +37,13 @@ onSaveEvento(eventoForm:NgForm):void{
   }
 }
 
+onSaveRecinto(recintoForm:NgForm):void{
+  if(recintoForm.value.recintoId == null){
+    this.dataApiService.saveRecinto(recintoForm.value).subscribe(recinto=>location.reload());
+
+  }else{
+    this.dataApiService.updateRecinto(recintoForm.value).subscribe(recinto=>location.reload());
+  }
+}
 
 }

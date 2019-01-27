@@ -8,6 +8,7 @@ import { ListBooksComponent } from 'src/app/components/admin/list-books/list-boo
 import{ListEventosComponent} from 'src/app/components/admin/list-eventos/list-eventos.component';
 import{DetailsEventoComponent} from 'src/app/components/details-evento/details-evento.component';
 
+import {ListRecintosComponent} from 'src/app/components/admin/list-recintos/list-recintos.component';
 
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
@@ -27,8 +28,11 @@ const routes: Routes = [
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] }, // TODO: only users auth
   {path:'evento/:id' , component:DetailsEventoComponent},
   {path:'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
+  
+  {path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
-  { path: '**', component: Page404Component }
+  { path: '**', component: Page404Component },
+ 
 ];
 
 @NgModule({
