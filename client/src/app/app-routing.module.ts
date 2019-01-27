@@ -25,12 +25,9 @@ const routes: Routes = [
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] }, // TODO: only users auth
-<<<<<<< HEAD
   {path:'evento/:id' , component:DetailsEventoComponent},
   {path:'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
-=======
   { path: 'user/nosotros', component: NosotrosComponent },
->>>>>>> cac0dc5dd46c125942da42a79cff871c54988ce5
   { path: '**', component: Page404Component }
 ];
 
