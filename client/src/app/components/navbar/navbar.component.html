@@ -1,6 +1,12 @@
 
+  <!--nav -->
+<br>
+<br>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+<nav class="navbar navbar-dark bg navbar-expand-sm fixed-top" style="background-color: #000000;">
+  
   <a href="#" class="brand-logo">
     <img class="logo" width="100" src="assets/img/LogoEventum.png">
   </a> 
@@ -38,11 +44,6 @@
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="/admin/list-eventos"> Lista de Eventos</a>
       </li>
-
-      <li class="nav-item" *ngIf="isLogged">
-        <a class="nav-link" href="/admin/list-recintos"> Lista de Recintos</a>
-      </li>
-
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/user/login">Inicio
         </a>
@@ -53,5 +54,8 @@
       </li>
     </ul>
   </div>
+ 
+        
+ 
 </nav>
 

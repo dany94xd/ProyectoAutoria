@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   getListEventos(){
     this.dataApi
-    .getAllEventos()
+    .getAllBooks()
     .subscribe((eventos:EventoInterface)=>(this.eventos = eventos));
    // .subscribe((eventos:EventoInterface)=>(this.eventos=eventos));
   }
