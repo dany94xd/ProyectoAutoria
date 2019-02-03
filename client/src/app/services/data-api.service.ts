@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
 import { BookInterface } from '../models/book-interface';
+import {TarifaInterface} from '../models/tarifa-interface';
 
 import { AuthService } from './auth.service';
 import { EventoInterface } from '../models/evento-interface';
@@ -23,6 +24,9 @@ evento:Observable<any>;
 
 recintos:Observable<any>;
 recinto:Observable<any>;
+
+tarifas:Observable<any>;
+tarifa:Observable<any>;
 
   public selectedBook: BookInterface = {
     id: null,
@@ -59,6 +63,13 @@ recinto:Observable<any>;
     descripcion:''
   };
 
+  public selectedTarifa:TarifaInterface={
+    idtarifa:null,
+    descripcion:'',
+    caracter:''
+  };
+
+
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: this.authService.getToken()
@@ -79,6 +90,14 @@ const url_api= `http://localhost:3000/api/recintos`;
 return this.http.get(url_api);
 }
 
+getAllTarifas(){
+  const url_api= `http://localhost:3000/api/tarifas`;
+  return this.http.get(url_api);
+  }
+  
+
+
+
   getNotOffers() {
     const url_api = `http://localhost:3000/api/books?filter[where][oferta]=0`;
     return this.http.get(url_api);
@@ -96,6 +115,11 @@ return this.http.get(url_api);
   getRecintoById(id:string){
     const url_api=`http://localhost:3000/api/recintos/${id}`;
     return (this.recinto = this.http.get(url_api))
+  }
+
+  getTarifaById(id:string){
+    const url_api=`http://localhost:3000/api/tarifas/${id}`;
+    return (this.tarifas = this.http.get(url_api))
   }
 
   getOffers() {
@@ -158,6 +182,17 @@ updateRecinto(recinto){
   .put<RecintoInterface>(url_api,recinto ,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+updateTarifa(tarifa){
+  const tarifaId= tarifa.tarifaId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/tarifas/${tarifaId}/?access_token=${token}`;
+  return this.http
+  .put<TarifaInterface>(url_api,tarifa ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+
   deleteBook(id: string) {
     // TODO: obtener token
     // TODO: not null
@@ -186,4 +221,14 @@ deleteRecinto(id:string){
   .delete<RecintoInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+deleteTarifa(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/tarifas/${id}/?access_token=${token}`;
+  return this.http
+  .delete<TarifaInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+
 }
