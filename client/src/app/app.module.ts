@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +35,7 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
 @NgModule({
   declarations: [
     AppComponent,
+
     HomeComponent,
     NosotrosComponent,
     NavbarComponent,
@@ -53,8 +56,9 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
     ListRecintosComponent,
     ListTarifaComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
