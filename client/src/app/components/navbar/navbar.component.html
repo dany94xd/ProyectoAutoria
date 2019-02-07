@@ -38,18 +38,17 @@
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" routerLink="/user/profile">Perfil</a>
       </li>
-      <li class="nav-item dropdown" *ngIf="isLogged">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Administración
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/admin/list-books">Lista de Conciertos</a>
-          <a class="dropdown-item" routerLink="/admin/list-recintos"> Lista de Recintos</a>
-          <a class="dropdown-item"  routerLink="/admin/list-eventos"> Lista de Eventos</a>
-          <a class="dropdown-item"  routerLink="/admin/list-tarifa"> Lista de Tarifas</a>
-          </div>
-      </li>
-
+    
+      <li class="nav-item dropdown btn-group" dropdown *ngIf="isLogged">
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Administración <span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" routerLink="/admin/list-books">Lista de Conciertos</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-recintos"> Lista de Recintos</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-eventos"> Lista de Eventos</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-tarifa"> Lista de Tarifas</a>
+        </div>
+    </li>
 
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/user/login">Inicio

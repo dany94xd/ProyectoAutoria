@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -56,7 +58,7 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
     ListRecintosComponent,
     ListTarifaComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, MDBBootstrapModule.forRoot()],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
   bootstrap: [AppComponent]
   
