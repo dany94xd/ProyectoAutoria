@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
+import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -40,6 +41,7 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
 
     HomeComponent,
     NosotrosComponent,
+    ContactanosComponent,
     NavbarComponent,
     OffersComponent,
     HeroComponent,
