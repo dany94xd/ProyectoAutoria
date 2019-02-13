@@ -5,6 +5,7 @@
     "types": [
       "jasmine",
       "node"
+   
     ]
   },
   "files": [
@@ -13,6 +14,7 @@
   ],
   "include": [
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "node_modules/angular-bootstrap-md/**/*.ts",  "src/**/*.ts"
   ]
 }

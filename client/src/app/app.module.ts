@@ -1,10 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
+import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -29,12 +34,18 @@ import { ListEventosComponent } from './components/admin/list-eventos/list-event
 import { DetailsEventoComponent } from './components/details-evento/details-evento.component';
 import { ListRecintosComponent } from './components/admin/list-recintos/list-recintos.component';
 import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.component';
+import { ListFilasComponent } from './components/admin/list-filas/list-filas.component';
+import { ListLocalidadesComponent } from './components/admin/list-localidades/list-localidades.component';
+import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
+import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+
     HomeComponent,
     NosotrosComponent,
+    ContactanosComponent,
     NavbarComponent,
     OffersComponent,
     HeroComponent,
@@ -51,10 +62,15 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
     ListEventosComponent,
     DetailsEventoComponent,
     ListRecintosComponent,
-    ListTarifaComponent
+    ListTarifaComponent,
+    ListFilasComponent,
+    ListLocalidadesComponent,
+    ListPreciosComponent,
+    ListTickestComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

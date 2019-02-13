@@ -131,9 +131,13 @@
 
                   <div class="form-group col-md-6" >
                       <label for="idrecinto">Recinto</label>
-                      <input type="text" id="idrecinto" name="idrecinto" 
-                      class="form-control" placeholder="codigo del Recinto"
-                      [(ngModel)]="this.dataApiService.selectedEvento.idrecinto" >
+                      <select  name="idrecinto" id="idrecinto" class="form-control"
+                      [(ngModel)]="this.dataApiService.selectedEvento.idrecinto">
+                      <option value="1">a</option>
+                      <option value="0">Inactivo</option>
+                     
+                    </select>
+                      
                     </div>
                 </div>
 
@@ -149,15 +153,13 @@
                     <label for="descripcion">Descripción</label>
                     <textarea name="descripcion" id="descripcion" class="form-control" cols="50" rows="4" [(ngModel)]="this.dataApiService.selectedEvento.descripcion"></textarea>
                   </div>
-                  <button type="submit" class="btn btn-primary float-right">Save Evento</button>
+                  <button type="submit" class="btn btn-primary float-right">Guardar</button>
 
 
 
 
             </form>
-
-
-
+           
           </div>
 
 
