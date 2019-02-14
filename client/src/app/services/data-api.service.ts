@@ -5,6 +5,8 @@ import { map } from 'rxjs/operators';
 
 import { BookInterface } from '../models/book-interface';
 import {TarifaInterface} from '../models/tarifa-interface';
+import {FilaInterface} from '../models/fila-interface';
+
 
 import { AuthService } from './auth.service';
 import { EventoInterface } from '../models/evento-interface';
@@ -27,6 +29,9 @@ recinto:Observable<any>;
 
 tarifas:Observable<any>;
 tarifa:Observable<any>;
+
+filas:Observable<any>;
+fila:Observable<any>;
 
   public selectedBook: BookInterface = {
     id: null,
