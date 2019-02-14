@@ -1,10 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
+import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -28,13 +33,23 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ListEventosComponent } from './components/admin/list-eventos/list-eventos.component';
 import { DetailsEventoComponent } from './components/details-evento/details-evento.component';
 import { ListRecintosComponent } from './components/admin/list-recintos/list-recintos.component';
+<<<<<<< HEAD
 import { ListLocalidadesComponent } from './components/admin/list-localidades/list-localidades.component';
+=======
+import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.component';
+import { ListFilasComponent } from './components/admin/list-filas/list-filas.component';
+import { ListLocalidadesComponent } from './components/admin/list-localidades/list-localidades.component';
+import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
+import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
+>>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
 
 @NgModule({
   declarations: [
     AppComponent,
+
     HomeComponent,
     NosotrosComponent,
+    ContactanosComponent,
     NavbarComponent,
     OffersComponent,
     HeroComponent,
@@ -51,10 +66,19 @@ import { ListLocalidadesComponent } from './components/admin/list-localidades/li
     ListEventosComponent,
     DetailsEventoComponent,
     ListRecintosComponent,
+<<<<<<< HEAD
     ListLocalidadesComponent
+=======
+    ListTarifaComponent,
+    ListFilasComponent,
+    ListLocalidadesComponent,
+    ListPreciosComponent,
+    ListTickestComponent
+>>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

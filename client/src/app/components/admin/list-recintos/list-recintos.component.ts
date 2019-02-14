@@ -36,7 +36,7 @@ export class ListRecintosComponent implements OnInit {
 
   resetForm(recintoForm?: NgForm): void {
     this.dataApiService.selectedRecinto = {
-      idrecinto: null,
+      id: null,
       nombre:'',
       direccion:'',
       descripcion:''

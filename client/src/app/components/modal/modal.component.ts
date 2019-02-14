@@ -30,19 +30,35 @@ export class ModalComponent implements OnInit {
 
 onSaveEvento(eventoForm:NgForm):void{
   if(eventoForm.value.eventoId == null){
-    this.dataApiService.saveEvento(eventoForm.value).subscribe(evento=>location.reload());
+    this.dataApiService.saveEvento(eventoForm.value)
+    .subscribe(evento=>location.reload());
 
   }else{
-    this.dataApiService.updateEvento(eventoForm.value).subscribe(evento=>location.reload());
+    this.dataApiService.updateEvento(eventoForm.value)
+    .subscribe(evento=>location.reload());
   }
 }
 
 onSaveRecinto(recintoForm:NgForm):void{
   if(recintoForm.value.recintoId == null){
-    this.dataApiService.saveRecinto(recintoForm.value).subscribe(recinto=>location.reload());
+    this.dataApiService.saveRecinto(recintoForm.value)
+    .subscribe(recinto=>location.reload());
 
   }else{
-    this.dataApiService.updateRecinto(recintoForm.value).subscribe(recinto=>location.reload());
+    this.dataApiService.updateRecinto(recintoForm.value)
+    .subscribe(recinto=>location.reload());
+  }
+}
+
+
+onSaveTarifa(tarifaForm:NgForm):void{
+  if(tarifaForm.value.tarifaId == null){
+    this.dataApiService.saveTarifa(tarifaForm.value)
+    .subscribe(tarifa=>location.reload());
+
+  }else{
+    this.dataApiService.updateTarifa(tarifaForm.value)
+    .subscribe(tarifa=>location.reload());
   }
 }
 

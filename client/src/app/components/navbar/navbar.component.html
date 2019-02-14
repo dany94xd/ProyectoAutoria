@@ -1,5 +1,6 @@
 
   <!--nav -->
+  
 <br>
 <br>
 
@@ -24,11 +25,15 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item" *ngIf="!isLogged">
+            <a class="nav-link"   href="#">Inicio
+            </a>
+          </li>
+        <li class="nav-item" *ngIf="!isLogged">
             <a class="nav-link" routerLink="/user/nosotros">Nosotros
             </a>
           </li>
           <li class="nav-item" *ngIf="!isLogged">
-              <a class="nav-link" routerLink="/user/register">Contáctanos
+              <a class="nav-link" routerLink="/user/contactanos">Contáctanos
               </a>
             </li>
       <li class="nav-item" *ngIf="!isLogged">
@@ -38,10 +43,20 @@
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" routerLink="/user/profile">Perfil</a>
       </li>
-      <li class="nav-item" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/admin/list-books">Lista de conciertos</a>
-      </li>
+    
+      <li class="nav-item dropdown btn-group" dropdown *ngIf="isLogged">
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Administración <span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" routerLink="/admin/list-books">Lista de Conciertos</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-recintos"> Lista de Recintos</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-eventos"> Lista de Eventos</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-tarifa"> Lista de Tarifas</a>
+            <a class="dropdown-item waves-light" routerLink="/admin/list-filas"> Lista de Filas</a>
+        </div>
+    </li>
 
+<<<<<<< HEAD
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" routerLink="/admin/list-recintos">Lista de recintos</a>
       </li>
@@ -53,6 +68,8 @@
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="/admin/list-eventos"> Lista de Eventos</a>
       </li>
+=======
+>>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/user/login">Inicio
         </a>

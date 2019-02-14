@@ -7,10 +7,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "idrecinto": {
-      "type": "string",
-      "required": true
-    },
+ 
     "nombre": {
       "type": "string",
       "required": true
