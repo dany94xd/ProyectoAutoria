@@ -34,15 +34,12 @@ const routes: Routes = [
   { path:'evento/:id' , component:DetailsEventoComponent},
   { path:'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
   
-<<<<<<< HEAD
   { path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
 
   { path:'admin/list-localidades', component: ListLocalidadesComponent, canActivate:[AuthGuard]},
-=======
   {path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   {path:'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
   {path:'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
->>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: ContactanosComponent },
   { path: '**', component: Page404Component },

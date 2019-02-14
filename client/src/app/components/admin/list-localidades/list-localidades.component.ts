@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import {DataApiService} from '../../../services/data-api.service';
 import{LocalidadInterface} from '../../../models/localidad-interface';
 import{NgForm} from '@angular/forms';
-=======
->>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
 
 @Component({
   selector: 'app-list-localidades',
   templateUrl: './list-localidades.component.html',
-<<<<<<< HEAD
   styleUrls: ['./list-localidades.component.css']
 })
 export class ListLocalidadesComponent implements OnInit {
@@ -47,15 +43,7 @@ export class ListLocalidadesComponent implements OnInit {
      
     };
   }
-=======
-  styleUrls: ['./list-localidades.component.scss']
-})
-export class ListLocalidadesComponent implements OnInit {
+  
 
-  constructor() { }
 
-  ngOnInit() {
-  }
-
->>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
 }

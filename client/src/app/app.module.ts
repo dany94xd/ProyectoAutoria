@@ -33,15 +33,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ListEventosComponent } from './components/admin/list-eventos/list-eventos.component';
 import { DetailsEventoComponent } from './components/details-evento/details-evento.component';
 import { ListRecintosComponent } from './components/admin/list-recintos/list-recintos.component';
-<<<<<<< HEAD
 import { ListLocalidadesComponent } from './components/admin/list-localidades/list-localidades.component';
-=======
 import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.component';
 import { ListFilasComponent } from './components/admin/list-filas/list-filas.component';
-import { ListLocalidadesComponent } from './components/admin/list-localidades/list-localidades.component';
+
 import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
 import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
->>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
 
 @NgModule({
   declarations: [
@@ -66,15 +63,12 @@ import { ListTickestComponent } from './components/admin/list-tickest/list-ticke
     ListEventosComponent,
     DetailsEventoComponent,
     ListRecintosComponent,
-<<<<<<< HEAD
-    ListLocalidadesComponent
-=======
+    ListLocalidadesComponent,
     ListTarifaComponent,
     ListFilasComponent,
     ListLocalidadesComponent,
     ListPreciosComponent,
     ListTickestComponent
->>>>>>> 368df4881ee6fc3bfe98c25d3101db502e91f55b
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
