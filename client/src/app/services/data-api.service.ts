@@ -88,7 +88,8 @@ fila:Observable<any>;
   };
 
   public selectedLocalidad:LocalidadInterface={
-    idlocalidad:null,
+    id:null,
+    idlocalidad:"",
     idrecinto:'',
     caracter:'',
     descripcion:''
