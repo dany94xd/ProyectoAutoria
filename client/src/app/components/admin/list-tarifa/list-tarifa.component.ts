@@ -35,7 +35,7 @@ s
 
   resetForm(tarifaForm?: NgForm): void {
     this.dataApiService.selectedTarifa = {
-      idtarifa: null,
+      id: null,
       descripcion:'',
       caracter:''
     };

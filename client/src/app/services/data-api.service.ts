@@ -71,14 +71,14 @@ fila:Observable<any>;
   };
 
   public selectedRecinto:RecintoInterface={
-    idrecinto:null,
+    id:null,
     nombre:'',
     direccion:'',
     descripcion:''
   };
 
   public selectedTarifa:TarifaInterface={
-    idtarifa:null,
+    id:null,
     descripcion:'',
     caracter:''
   };
@@ -184,6 +184,15 @@ getFilaById(id:string){
     const url_api = `http://localhost:3000/api/recintos?access_token=${token}`;
     return this.http
     .post<RecintoInterface>(url_api,recinto,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
+
+  saveTarifa(tarifa:TarifaInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/tarifas?access_token=${token}`;
+    return this.http
+    .post<TarifaInterface>(url_api,tarifa,{headers:this.headers})
     .pipe(map(data=>data));
   }
 

@@ -23,7 +23,7 @@ export class ListFilasComponent implements OnInit {
   getListFilas(): void {
     this.dataApiService
       .getAllFilas()
-      .subscribe((eventos: FilaInterface) => (this.filas = filas));
+      .subscribe((filas: FilaInterface) => (this.filas = filas));
   }
 
   onDeleteFila(id: string): void {
@@ -33,11 +33,11 @@ export class ListFilasComponent implements OnInit {
   }
 
   onPreUpdateFila(fila: FilaInterface): void {
-    this.dataApiService.selectedFila = Object.assign({}, fila);
+    this.dataApiService.selectedFilas = Object.assign({}, fila);
   }
 
   resetForm(filaForm?: NgForm): void {
-    this.dataApiService.selectedFila = {
+    this.dataApiService.selectedFilas = {
       id: null,
       nombre:'',
       idfila:'',

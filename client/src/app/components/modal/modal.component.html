@@ -133,7 +133,7 @@
                       <label for="idrecinto">Recinto</label>
                       <select  name="idrecinto" id="idrecinto" class="form-control"
                       [(ngModel)]="this.dataApiService.selectedEvento.idrecinto">
-                      <option value="1">a</option>
+                      <option value="1">Activo</option>
                       <option value="0">Inactivo</option>
                      
                     </select>
@@ -183,14 +183,15 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApiService.selectedRecinto.idrecinto ? 'New Recinto' : 'Update Recinto'}}</h5>
+        <h5 class="modal-title" 
+        id="exampleModalLabel">{{!this.dataApiService.selectedRecinto.id ? 'New Recinto' : 'Update Recinto'}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form class="form-recinto" #formRecinto="ngForm" (ngSubmit)="onSaveRecinto(formRecinto)">
-          <input type="hidden" id="recintoId" name="recintoId" class="form-control" [(ngModel)]="this.dataApiService.selectedRecinto.idrecinto">
+          <input type="hidden" id="recintoId" name="recintoId" class="form-control" [(ngModel)]="this.dataApiService.selectedRecinto.id">
           <div class="form-group">
             <label for="">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="this.dataApiService.selectedRecinto.nombre">
@@ -225,14 +226,50 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApiService.selectedRecinto.idrecinto ? 'New Recinto' : 'Update Recinto'}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApiService.selectedTarifa.id? 'New Tarifa' : 'Update Tarifa'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-tarifa" 
+        #formTarifa="ngForm" (ngSubmit)="onSaveTarifa(formTarifa)">
+          <input type="hidden" id="tarifaId" name="tarifaId" class="form-control"
+           [(ngModel)]="this.dataApiService.selectedTarifa.id">
+          <div class="form-group">
+            <label for="">Descripcion</label>
+            <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion" [(ngModel)]="this.dataApiService.selectedTarifa.descripcion">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="caracter">Caracter</label>
+              <input type="text" id="caracter" name="caracter" class="form-control" placeholder="Caracter" [(ngModel)]="this.dataApiService.selectedTarifa.caracter">
+
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Save Tarifa</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Filas -->
+<div id="modalTarifa" class="modal fade" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApiService.selectedRecinto.id ? 'New Recinto' : 'Update Recinto'}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form class="form-recinto" #formRecinto="ngForm" (ngSubmit)="onSaveRecinto(formRecinto)">
-          <input type="hidden" id="recintoId" name="recintoId" class="form-control" [(ngModel)]="this.dataApiService.selectedRecinto.idrecinto">
+          <input type="hidden" id="recintoId" name="recintoId" class="form-control" [(ngModel)]="this.dataApiService.selectedRecinto.id">
           <div class="form-group">
             <label for="">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="this.dataApiService.selectedRecinto.nombre">
@@ -260,3 +297,4 @@
     </div>
   </div>
 </div>
+
