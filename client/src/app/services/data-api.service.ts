@@ -49,7 +49,6 @@ fila:Observable<any>;
 
     id:null,
     idbloque:'',
-    idfila:'',
     nombre:''
 
   };

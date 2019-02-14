@@ -40,7 +40,6 @@ export class ListFilasComponent implements OnInit {
     this.dataApiService.selectedFilas = {
       id: null,
       nombre:'',
-      idfila:'',
       idbloque:''
     };
   }
