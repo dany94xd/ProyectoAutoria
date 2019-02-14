@@ -45,6 +45,15 @@ fila:Observable<any>;
     oferta: ''
   };
 
+  public selectedFilas: FilaInterface={
+
+    id:null,
+    idbloque:'',
+    idfila:'',
+    nombre:''
+
+  };
+
   public selectedEvento:EventoInterface={
 
    id:null,
@@ -80,6 +89,9 @@ fila:Observable<any>;
     Authorization: this.authService.getToken()
   });
 
+
+  //metodo de traer obetos con get
+
   getAllBooks() {
     const url_api = `http://localhost:3000/api/books`;
     return this.http.get(url_api);
@@ -100,13 +112,26 @@ getAllTarifas(){
   return this.http.get(url_api);
   }
   
+getAllFilas(){
+  const url_api= `http://localhost:3000/api/filas`;
+  return this.http.get(url_api);
+}
 
-
-
+///////////////////////////////////////////////////////////////////////////////7
+//metodo traer select de ofertas
   getNotOffers() {
     const url_api = `http://localhost:3000/api/books?filter[where][oferta]=0`;
     return this.http.get(url_api);
   }
+
+
+  getOffers() {
+    const url_api = `http://localhost:3000/api/books?filter[where][oferta]=1`;
+    return (this.books = this.http.get(url_api));
+  }
+
+/////////////////////////////////////////////////////////////////7
+// metodo select por id  
   getBookById(id: string) {
     const url_api = `http://localhost:3000/api/books/${id}`;
     return (this.book = this.http.get(url_api));
@@ -127,10 +152,13 @@ getAllTarifas(){
     return (this.tarifas = this.http.get(url_api))
   }
 
-  getOffers() {
-    const url_api = `http://localhost:3000/api/books?filter[where][oferta]=1`;
-    return (this.books = this.http.get(url_api));
-  }
+getFilaById(id:string){
+  const url_api=`http://localhost:3000/api/filas/${id}`;
+  return (this.tarifas = this.http.get(url_api))
+}
+
+////////////////////////////////////////////////////////////
+// metodo guardar por post
 
   saveBook(book: BookInterface) {
     // TODO: obtener token
@@ -159,6 +187,17 @@ getAllTarifas(){
     .pipe(map(data=>data));
   }
 
+  saveFila(fila:FilaInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/filas?access_token=${token}`;
+    return this.http
+    .post<FilaInterface>(url_api,fila,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
+
+////////////////////////////////////////////////////////////////////////////
+// metodo put actualizar tablas
   updateBook(book) {
     // TODO: obtener token
     // TODO: not null
@@ -198,6 +237,23 @@ updateTarifa(tarifa){
 }
 
 
+
+updateFila(fila){
+  const filaId= fila.filaId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/filas/${filaId}/?access_token=${token}`;
+  return this.http
+  .put<FilaInterface>(url_api,fila ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////777777
+// metodos borrar delete
+
   deleteBook(id: string) {
     // TODO: obtener token
     // TODO: not null
@@ -234,6 +290,22 @@ deleteTarifa(id:string){
   .delete<TarifaInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+deleteFila(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/filas/${id}/?access_token=${token}`;
+  return this.http
+  .delete<FilaInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+
+
+
+
+
+
+
 
 
 }
