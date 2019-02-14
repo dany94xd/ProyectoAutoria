@@ -28,6 +28,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ListEventosComponent } from './components/admin/list-eventos/list-eventos.component';
 import { DetailsEventoComponent } from './components/details-evento/details-evento.component';
 import { ListRecintosComponent } from './components/admin/list-recintos/list-recintos.component';
+import { ListLocalidadesComponent } from './components/admin/list-localidades/list-localidades.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ListRecintosComponent } from './components/admin/list-recintos/list-rec
     TruncateTextPipe,
     ListEventosComponent,
     DetailsEventoComponent,
-    ListRecintosComponent
+    ListRecintosComponent,
+    ListLocalidadesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule],
   providers: [DataApiService],

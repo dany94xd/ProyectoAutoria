@@ -9,6 +9,8 @@ import { AuthService } from './auth.service';
 import { EventoInterface } from '../models/evento-interface';
 import { RecintoInterface } from '../models/recinto-interface';
 
+import { LocalidadInterface } from '../models/localidad-interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,16 @@ evento:Observable<any>;
 
 recintos:Observable<any>;
 recinto:Observable<any>;
+
+
+
+
+
+
+
+
+localidades:Observable<any>;
+localidad:Observable<any>;
 
   public selectedBook: BookInterface = {
     id: null,
@@ -59,6 +71,13 @@ recinto:Observable<any>;
     descripcion:''
   };
 
+  public selectedLocalidad:LocalidadInterface={
+    idlocalidad:null,
+    idrecinto:'',
+    caracter:'',
+    descripcion:''
+  };
+
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: this.authService.getToken()
@@ -79,6 +98,11 @@ const url_api= `http://localhost:3000/api/recintos`;
 return this.http.get(url_api);
 }
 
+getAllLocalidades(){
+  const url_api= `http://localhost:3000/api/localidades`;
+  return this.http.get(url_api);
+  }
+
   getNotOffers() {
     const url_api = `http://localhost:3000/api/books?filter[where][oferta]=0`;
     return this.http.get(url_api);
@@ -96,6 +120,11 @@ return this.http.get(url_api);
   getRecintoById(id:string){
     const url_api=`http://localhost:3000/api/recintos/${id}`;
     return (this.recinto = this.http.get(url_api))
+  }
+
+  getLocalidadById(id:string){
+    const url_api=`http://localhost:3000/api/localidades/${id}`;
+    return (this.localidad = this.http.get(url_api))
   }
 
   getOffers() {
@@ -130,6 +159,14 @@ return this.http.get(url_api);
     .pipe(map(data=>data));
   }
 
+  saveLocalidad(localidad:LocalidadInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/localidades?access_token=${token}`;
+    return this.http
+    .post<LocalidadInterface>(url_api,localidad,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
   updateBook(book) {
     // TODO: obtener token
     // TODO: not null
@@ -158,6 +195,16 @@ updateRecinto(recinto){
   .put<RecintoInterface>(url_api,recinto ,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+updateLocalidad(localidad){
+  const localidadId= localidad.localidadId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/localidades/${localidadId}/?access_token=${token}`;
+  return this.http
+  .put<LocalidadInterface>(url_api,localidad ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
   deleteBook(id: string) {
     // TODO: obtener token
     // TODO: not null
@@ -184,6 +231,14 @@ deleteRecinto(id:string){
   const url_api = `http://localhost:3000/api/recintos/${id}/?access_token=${token}`;
   return this.http
   .delete<RecintoInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+deleteLocalidad(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/localidades/${id}/?access_token=${token}`;
+  return this.http
+  .delete<LocalidadInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
 }

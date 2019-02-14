@@ -47,6 +47,10 @@
       </li>
 
       <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/admin/list-localidades">Lista de Localidades</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="/admin/list-eventos"> Lista de Eventos</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged">

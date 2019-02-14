@@ -10,6 +10,8 @@ import{DetailsEventoComponent} from 'src/app/components/details-evento/details-e
 
 import {ListRecintosComponent} from 'src/app/components/admin/list-recintos/list-recintos.component';
 
+import {ListLocalidadesComponent} from 'src/app/components/admin/list-localidades/list-localidades.component';
+
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
 import { ProfileComponent } from 'src/app/components/user/profile/profile.component';
@@ -26,10 +28,12 @@ const routes: Routes = [
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] }, // TODO: only users auth
-  {path:'evento/:id' , component:DetailsEventoComponent},
-  {path:'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
+  { path:'evento/:id' , component:DetailsEventoComponent},
+  { path:'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
   
-  {path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
+  { path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
+
+  { path:'admin/list-localidades', component: ListLocalidadesComponent, canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: '**', component: Page404Component },
  

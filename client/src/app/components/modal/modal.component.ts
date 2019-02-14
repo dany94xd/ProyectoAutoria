@@ -46,4 +46,13 @@ onSaveRecinto(recintoForm:NgForm):void{
   }
 }
 
+onSaveLocalidad(localidadForm:NgForm):void{
+  if(localidadForm.value.localidadId == null){
+    this.dataApiService.saveLocalidad(localidadForm.value).subscribe(localidad=>location.reload());
+
+  }else{
+    this.dataApiService.updateLocalidad(localidadForm.value).subscribe(localidad=>location.reload());
+  }
+}
+
 }

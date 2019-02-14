@@ -216,3 +216,51 @@
     </div>
   </div>
 </div>
+
+
+<!--LOCALIDAD-->
+
+<div id="modalLocalidad" class="modal fade" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApiService.selectedLocalidad.idlocalidad ? 'Nueva Localidad' : 'Actualizar Localidad'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-localidad" #formLocalidad="ngForm" (ngSubmit)="onSaveLocalidad(formLocalidad)">
+          <input type="hidden" id="localidadId" name="localidadId" class="form-control" [(ngModel)]="this.dataApiService.selectedLocalidad.idlocalidad">
+          <div class="form-group">
+            <label for="">idlocalidad</label>
+            <input type="text" id="idlocalidad" name="idlocalidad" class="form-control" placeholder="idlocalidad" [(ngModel)]="this.dataApiService.selectedLocalidad.idlocalidad">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="direccion">Recinto</label>
+              <input type="text" id="recinto" name="recinto" class="form-control" placeholder="Recinto" [(ngModel)]="this.dataApiService.selectedLocalidad.idrecinto">
+
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="descripcion">Caracter</label>
+              <input type="text" id="caracter" name="caracter" class="form-control" placeholder="Caracter" [(ngModel)]="this.dataApiService.selectedLocalidad.caracter">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion" [(ngModel)]="this.dataApiService.selectedLocalidad.descripcion">
+            </div>
+
+          </div>
+          
+         
+          
+          <button type="submit" class="btn btn-primary float-right">Guardar Localidad</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
