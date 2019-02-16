@@ -14,6 +14,8 @@ import { RecintoInterface } from '../models/recinto-interface';
 
 import { LocalidadInterface } from '../models/localidad-interface';
 
+import { PrecioInterface } from '../models/precio-interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +31,12 @@ evento:Observable<any>;
 recintos:Observable<any>;
 recinto:Observable<any>;
 
-
-
-
-
-
-
+precios:Observable<any>;
+precio:Observable<any>;
 
 localidades:Observable<any>;
 localidad:Observable<any>;
+
 tarifas:Observable<any>;
 tarifa:Observable<any>;
 
@@ -56,7 +55,7 @@ fila:Observable<any>;
     oferta: ''
   };
 
-  public selectedFilas: FilaInterface={
+  public selectedFila: FilaInterface={
 
     id:null,
     idbloque:'',
@@ -101,6 +100,14 @@ fila:Observable<any>;
     caracter:''
   };
 
+  public selectedPrecio:PrecioInterface={
+    id: null,
+    nombre:'',
+    idevento:'',
+    idlocalidad:'',
+    valor:''
+  };
+
 
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -137,6 +144,11 @@ getAllTarifas(){
   
 getAllFilas(){
   const url_api= `http://localhost:3000/api/filas`;
+  return this.http.get(url_api);
+}
+
+getAllPrecios(){
+  const url_api= `http://localhost:3000/api/precios`;
   return this.http.get(url_api);
 }
 
@@ -184,6 +196,11 @@ getAllFilas(){
 getFilaById(id:string){
   const url_api=`http://localhost:3000/api/filas/${id}`;
   return (this.tarifas = this.http.get(url_api))
+}
+
+getPrecioById(id:string){
+  const url_api=`http://localhost:3000/api/precio/${id}`;
+  return (this.precios = this.http.get(url_api))
 }
 
 ////////////////////////////////////////////////////////////
@@ -240,7 +257,13 @@ getFilaById(id:string){
     .post<FilaInterface>(url_api,fila,{headers:this.headers})
     .pipe(map(data=>data));
   }
-
+  savePrecio(precio:PrecioInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/precios?access_token=${token}`;
+    return this.http
+    .post<PrecioInterface>(url_api,precio,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
 
 ////////////////////////////////////////////////////////////////////////////
 // metodo put actualizar tablas
@@ -302,6 +325,14 @@ updateFila(fila){
   .pipe(map(data=>data));
 }
 
+updatePrecio(precio){
+  const precioId= precio.precioId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/precios/${precioId}/?access_token=${token}`;
+  return this.http
+  .put<PrecioInterface>(url_api,precio ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 
 
 
@@ -358,6 +389,14 @@ deleteFila(id:string){
   const url_api = `http://localhost:3000/api/filas/${id}/?access_token=${token}`;
   return this.http
   .delete<FilaInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+deletePrecio(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/precios/${id}/?access_token=${token}`;
+  return this.http
+  .delete<PrecioInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
 

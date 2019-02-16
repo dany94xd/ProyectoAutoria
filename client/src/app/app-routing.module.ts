@@ -14,6 +14,9 @@ import {ListTarifaComponent} from 'src/app/components/admin/list-tarifa/list-tar
 import {ListFilasComponent} from 'src/app/components/admin/list-filas/list-filas.component';
 
 import {ListLocalidadesComponent} from 'src/app/components/admin/list-localidades/list-localidades.component';
+import {ListPreciosComponent} from 'src/app/components/admin/list-precios/list-precios.component';
+
+
 
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
@@ -40,6 +43,7 @@ const routes: Routes = [
   {path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   {path:'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
   {path:'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
+  {path:'admin/list-precios',component:ListPreciosComponent,canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: ContactanosComponent },
   { path: '**', component: Page404Component },

@@ -71,4 +71,13 @@ onSaveLocalidad(localidadForm:NgForm):void{
   }
 }
 
+onSavePrecio(precioForm:NgForm):void{
+  if(precioForm.value.precioId == null){
+    this.dataApiService.savePrecio(precioForm.value).subscribe(precio=>location.reload());
+
+  }else{
+    this.dataApiService.updatePrecio(precioForm.value).subscribe(precio=>location.reload());
+  }
+}
+
 }
