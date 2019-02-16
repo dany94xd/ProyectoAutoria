@@ -43,7 +43,7 @@ import { ListTickestComponent } from './components/admin/list-tickest/list-ticke
 @NgModule({
   declarations: [
     AppComponent,
-
+    CountDown,
     HomeComponent,
     NosotrosComponent,
     ContactanosComponent,
