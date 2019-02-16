@@ -7,8 +7,8 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Nombre</th>
           <th scope="col">Fila</th>
+          <th scope="col">Nombre</th>
           <th scope="col">Bloque</th>
           <th scope="col">&nbsp;</th>
           <th scope="col">&nbsp;</th>
@@ -19,6 +19,7 @@
         | paginate: {itemsPerPage: 7, currentPage: pageActual}; index as i">
 
           <th scope="row"> {{i+1}}</th>
+          <td>{{fila.idfila}}</td>
           <td>{{fila.nombre}}</td>
           <td>{{fila.idbloque}}</td>
           <td>

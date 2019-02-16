@@ -33,12 +33,13 @@ export class ListFilasComponent implements OnInit {
   }
 
   onPreUpdateFila(fila: FilaInterface): void {
-    this.dataApiService.selectedFilas = Object.assign({}, fila);
+    this.dataApiService.selectedFila = Object.assign({}, fila);
   }
 
   resetForm(filaForm?: NgForm): void {
-    this.dataApiService.selectedFilas = {
+    this.dataApiService.selectedFila = {
       id: null,
+      idfila:'',
       nombre:'',
       idbloque:''
     };

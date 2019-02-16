@@ -71,4 +71,13 @@ onSaveLocalidad(localidadForm:NgForm):void{
   }
 }
 
+onSaveFila(filaForm:NgForm):void{
+  if(filaForm.value.filaId == null){
+    this.dataApiService.saveFila(filaForm.value).subscribe(fila=>location.reload());
+
+  }else{
+    this.dataApiService.updateFila(filaForm.value).subscribe(fila=>location.reload());
+  }
+}
+
 }

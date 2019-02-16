@@ -7,10 +7,12 @@
     "validateUpsert": true
   },
   "properties": {
+
     "idfila": {
       "type": "string",
       "required": true
     },
+
     "idbloque": {
       "type": "string",
       "required": true

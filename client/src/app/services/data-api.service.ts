@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
-import { BookInterface } from '../models/book-interface';
+import {BookInterface } from '../models/book-interface';
 import {TarifaInterface} from '../models/tarifa-interface';
 import {FilaInterface} from '../models/fila-interface';
 
@@ -29,15 +29,9 @@ evento:Observable<any>;
 recintos:Observable<any>;
 recinto:Observable<any>;
 
-
-
-
-
-
-
-
 localidades:Observable<any>;
 localidad:Observable<any>;
+
 tarifas:Observable<any>;
 tarifa:Observable<any>;
 
@@ -56,9 +50,10 @@ fila:Observable<any>;
     oferta: ''
   };
 
-  public selectedFilas: FilaInterface={
+  public selectedFila: FilaInterface={
 
     id:null,
+    idfila:'',
     idbloque:'',
     nombre:''
 
@@ -89,7 +84,7 @@ fila:Observable<any>;
 
   public selectedLocalidad:LocalidadInterface={
     id:null,
-    idlocalidad:"",
+    idlocalidad:'',
     idrecinto:'',
     caracter:'',
     descripcion:''
@@ -183,7 +178,7 @@ getAllFilas(){
 
 getFilaById(id:string){
   const url_api=`http://localhost:3000/api/filas/${id}`;
-  return (this.tarifas = this.http.get(url_api))
+  return (this.filas = this.http.get(url_api))
 }
 
 ////////////////////////////////////////////////////////////
@@ -278,7 +273,7 @@ updateLocalidad(localidad){
   const token= this.authService.getToken();
   const url_api=`http://localhost:3000/api/localidades/${localidadId}/?access_token=${token}`;
   return this.http
-  .put<LocalidadInterface>(url_api,localidad ,{headers:this.headers})
+  .put<LocalidadInterface>(url_api,localidad,{headers:this.headers})
   .pipe(map(data=>data));
 }
 
@@ -345,6 +340,8 @@ deleteLocalidad(id:string){
   .delete<LocalidadInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+
 deleteTarifa(id:string){
   const token = this.authService.getToken();
   const url_api = `http://localhost:3000/api/tarifas/${id}/?access_token=${token}`;
@@ -360,10 +357,6 @@ deleteFila(id:string){
   .delete<FilaInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
-
-
-
-
 
 
 

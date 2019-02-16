@@ -234,15 +234,16 @@
       <div class="modal-body">
         <form class="form-localidad" #formLocalidad="ngForm" (ngSubmit)="onSaveLocalidad(formLocalidad)">
           <input type="hidden" id="localidadId" name="localidadId" class="form-control" [(ngModel)]="this.dataApiService.selectedLocalidad.id">
+
           <div class="form-group">
-            <label for="">idlocalidad</label>
+            <label for="idlocalidad">idlocalidad</label>
             <input type="text" id="idlocalidad" name="idlocalidad" class="form-control" placeholder="idlocalidad" [(ngModel)]="this.dataApiService.selectedLocalidad.idlocalidad">
           </div>
 
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="direccion">Recinto</label>
-              <input type="text" id="recinto" name="recinto" class="form-control" placeholder="Recinto" [(ngModel)]="this.dataApiService.selectedLocalidad.idrecinto">
+              <label for="idrecinto">Recinto</label>
+              <input type="text" id="idrecinto" name="idrecinto" class="form-control" placeholder="Recinto" [(ngModel)]="this.dataApiService.selectedLocalidad.idrecinto">
 
             </div>
 
@@ -291,11 +292,10 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="caracter">Caracter</label>
-              <input type="text" id="caracter" name="caracter" class="form-control" placeholder="Caracter" [(ngModel)]="this.dataApiService.selectedTarifa.caracter">
-
+              <input type="text" id="caracter" name="caracter"  class="form-control" placeholder="eljia caracter" [(ngModel)]="this.dataApiService.selectedTarifa.caracter">
             </div>
-
           </div>
+
           <button type="submit" class="btn btn-primary float-right">Save Tarifa</button>
         </form>
       </div>
@@ -315,8 +315,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-fila" #formRecinto="ngForm" (ngSubmit)="onSaveRecinto(formFila)">
+        <form class="form-fila" #formFila="ngForm" (ngSubmit)="onSaveFila(formFila)">
           <input type="hidden" id="filaId" name="filaId" class="form-control" [(ngModel)]="this.dataApiService.selectedFila.id">
+
+          <div class="form-group">
+            <label for="">Fila</label>
+            <input type="text" id="idfila" name="idfila" class="form-control" placeholder="Fila" [(ngModel)]="this.dataApiService.selectedFila.idfila">
+          </div>
+
           <div class="form-group">
             <label for="">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="this.dataApiService.selectedFila.nombre">
@@ -324,8 +330,8 @@
 
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="direccion">Direccion</label>
-              <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Direccion" [(ngModel)]="this.dataApiService.selectedRecinto.direccion">
+              <label for="idbloque">Bloque</label>
+              <input type="text" id="idbloque" name="idbloque" class="form-control" placeholder="Bloque" [(ngModel)]="this.dataApiService.selectedFila.idbloque">
 
             </div>
 
@@ -335,7 +341,7 @@
           
          
           
-          <button type="submit" class="btn btn-primary float-right">Save Recinto</button>
+          <button type="submit" class="btn btn-primary float-right">Save Fila</button>
         </form>
       </div>
     </div>
