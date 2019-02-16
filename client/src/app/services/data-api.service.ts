@@ -14,6 +14,9 @@ import { RecintoInterface } from '../models/recinto-interface';
 
 import { LocalidadInterface } from '../models/localidad-interface';
 
+import { PrecioInterface } from '../models/precio-interface';
+
+import { BloqueInterface } from '../models/bloque-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +32,19 @@ evento:Observable<any>;
 recintos:Observable<any>;
 recinto:Observable<any>;
 
+precios:Observable<any>;
+precio:Observable<any>;
+
 localidades:Observable<any>;
 localidad:Observable<any>;
 
 tarifas:Observable<any>;
 tarifa:Observable<any>;
 
+
+
+bloques:Observable<any>;
+bloque:Observable<any>;
 filas:Observable<any>;
 fila:Observable<any>;
 
@@ -90,10 +100,25 @@ fila:Observable<any>;
     descripcion:''
   };
 
+  public selectedBloque:BloqueInterface={
+    id:null,
+    idbloque:'',
+    idlocalidad:"",
+    descripcion:''
+  };
+
   public selectedTarifa:TarifaInterface={
     id:null,
     descripcion:'',
     caracter:''
+  };
+
+  public selectedPrecio:PrecioInterface={
+    id: null,
+    nombre:'',
+    idevento:'',
+    idlocalidad:'',
+    valor:''
   };
 
 
@@ -123,7 +148,12 @@ return this.http.get(url_api);
 getAllLocalidades(){
   const url_api= `http://localhost:3000/api/localidades`;
   return this.http.get(url_api);
-  }
+}
+
+getAllBloques(){
+  const url_api= `http://localhost:3000/api/bloques`;
+  return this.http.get(url_api);
+}
 
 getAllTarifas(){
   const url_api= `http://localhost:3000/api/tarifas`;
@@ -132,6 +162,11 @@ getAllTarifas(){
   
 getAllFilas(){
   const url_api= `http://localhost:3000/api/filas`;
+  return this.http.get(url_api);
+}
+
+getAllPrecios(){
+  const url_api= `http://localhost:3000/api/precios`;
   return this.http.get(url_api);
 }
 
@@ -170,6 +205,11 @@ getAllFilas(){
     return (this.localidad = this.http.get(url_api))
   }
 
+  getBloqueById(id:string){
+    const url_api=`http://localhost:3000/api/bloques/${id}`;
+    return (this.bloque = this.http.get(url_api))
+  }
+
   
   getTarifaById(id:string){
     const url_api=`http://localhost:3000/api/tarifas/${id}`;
@@ -179,6 +219,11 @@ getAllFilas(){
 getFilaById(id:string){
   const url_api=`http://localhost:3000/api/filas/${id}`;
   return (this.filas = this.http.get(url_api))
+}
+
+getPrecioById(id:string){
+  const url_api=`http://localhost:3000/api/precio/${id}`;
+  return (this.precios = this.http.get(url_api))
 }
 
 ////////////////////////////////////////////////////////////
@@ -219,6 +264,14 @@ getFilaById(id:string){
     .pipe(map(data=>data));
   }
 
+  saveBloque(bloque:BloqueInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/bloques?access_token=${token}`;
+    return this.http
+    .post<BloqueInterface>(url_api,bloque,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
 
   saveTarifa(tarifa:TarifaInterface){
     const token = this.authService.getToken();
@@ -235,7 +288,13 @@ getFilaById(id:string){
     .post<FilaInterface>(url_api,fila,{headers:this.headers})
     .pipe(map(data=>data));
   }
-
+  savePrecio(precio:PrecioInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/precios?access_token=${token}`;
+    return this.http
+    .post<PrecioInterface>(url_api,precio,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
 
 ////////////////////////////////////////////////////////////////////////////
 // metodo put actualizar tablas
@@ -277,6 +336,15 @@ updateLocalidad(localidad){
   .pipe(map(data=>data));
 }
 
+updateBloque(bloque){
+  const bloqueId= bloque.bloqueId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/bloques/${bloqueId}/?access_token=${token}`;
+  return this.http
+  .put<BloqueInterface>(url_api,bloque ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
 updateTarifa(tarifa){
   const tarifaId= tarifa.tarifaId;
   const token= this.authService.getToken();
@@ -297,6 +365,14 @@ updateFila(fila){
   .pipe(map(data=>data));
 }
 
+updatePrecio(precio){
+  const precioId= precio.precioId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/precios/${precioId}/?access_token=${token}`;
+  return this.http
+  .put<PrecioInterface>(url_api,precio ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 
 
 
@@ -341,6 +417,13 @@ deleteLocalidad(id:string){
   .pipe(map(data=>data));
 }
 
+deleteBloque(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/bloques/${id}/?access_token=${token}`;
+  return this.http
+  .delete<BloqueInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 
 deleteTarifa(id:string){
   const token = this.authService.getToken();
@@ -355,6 +438,14 @@ deleteFila(id:string){
   const url_api = `http://localhost:3000/api/filas/${id}/?access_token=${token}`;
   return this.http
   .delete<FilaInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+deletePrecio(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/precios/${id}/?access_token=${token}`;
+  return this.http
+  .delete<PrecioInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
 

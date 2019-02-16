@@ -39,11 +39,11 @@ import { ListFilasComponent } from './components/admin/list-filas/list-filas.com
 
 import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
 import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
+import { ListBloquesComponent } from './components/admin/list-bloques/list-bloques.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     HomeComponent,
     NosotrosComponent,
     ContactanosComponent,
@@ -68,7 +68,8 @@ import { ListTickestComponent } from './components/admin/list-tickest/list-ticke
     ListFilasComponent,
     ListLocalidadesComponent,
     ListPreciosComponent,
-    ListTickestComponent
+    ListTickestComponent,
+    ListBloquesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],

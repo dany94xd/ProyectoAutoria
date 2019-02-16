@@ -28,10 +28,10 @@
           <td>{{evento.hora}}</td>
           <td>{{evento.estado == 1 ? 'Activo' : 'Inactivo'}}</td> 
           <td>
-            <button class="btn btn-primary" (click)="onPreUpdateEvento(evento)" data-toggle="modal" data-target="#modalEvento">Update</button>
+            <button class="btn btn-primary" (click)="onPreUpdateEvento(evento)" data-toggle="modal" data-target="#modalEvento">Actualizar</button>
           </td>
           <td>
-            <a href="/admin/list-eventos" class="btn btn-danger" (click)="onDeleteEvento(evento.id)">Delete</a>
+            <a href="/admin/list-eventos" class="btn btn-danger" (click)="onDeleteEvento(evento.id)">Borrar</a>
           </td>
         </tr>
 

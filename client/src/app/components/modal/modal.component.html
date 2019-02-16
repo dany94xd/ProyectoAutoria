@@ -268,6 +268,46 @@
   </div>
 </div>
 
+
+<!-- bloque-->
+
+<div id="modalBloque" class="modal fade" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" 
+        id="exampleModalLabel">{{!this.dataApiService.selectedBloque.id ? 'Nuevo Bloque' : 'Actualizar Bloque'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-bloque" #formBloque="ngForm" (ngSubmit)="onSaveBloque(formBloque)">
+          <input type="hidden" id="bloqueId" name="bloqueId" class="form-control" [(ngModel)]="this.dataApiService.selectedBloque.id">
+          <div class="form-group">
+            <label for="">Id Bloque</label>
+            <input type="text" id="idbloque" name="idbloque" class="form-control" placeholder="idbloque" [(ngModel)]="this.dataApiService.selectedBloque.idbloque">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="direccion">Id Localidad</label>
+              <input type="text" id="idlocalidad" name="idlocalidad" class="form-control" placeholder="idlocalidad" [(ngModel)]="this.dataApiService.selectedBloque.idlocalidad">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion" [(ngModel)]="this.dataApiService.selectedBloque.descripcion">
+            </div>
+          </div>           
+          <button type="submit" class="btn btn-primary float-right">Grabar Bloque</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!-- tarifa-->
 
 <div id="modalTarifa" class="modal fade" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -347,4 +387,63 @@
     </div>
   </div>
 </div>
+
+<!-- Precios -->
+<div id="modalPrecio" class="modal fade" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{!this.dataApiService.selectedPrecio.id ? 'New Precio' : 'Update Precio'}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-precio" #formPrecio="ngForm" (ngSubmit)="onSavePrecio(formPrecio)">
+          <input type="hidden" id="precioId" name="precioId" class="form-control" [(ngModel)]="this.dataApiService.selectedPrecio.id">
+          
+          <div class="form-group">
+              <label for="idprecio">idprecio</label>
+              <input type="text" id="idprecio" name="idprecio" class="form-control" placeholder="Precio" [(ngModel)]="this.dataApiService.selectedPrecio.idprecio">
+            </div>
+
+          <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="this.dataApiService.selectedPrecio.nombre">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="idevento">Evento</label>
+              <input type="text" id="idevento" name="idevento" class="form-control" placeholder="Evento" [(ngModel)]="this.dataApiService.selectedPrecio.idevento">
+
+            </div>
+
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="idlocalidad">Localidad</label>
+              <input type="text" id="idlocalidad" name="idlocalidad" class="form-control" placeholder="Localidad" [(ngModel)]="this.dataApiService.selectedPrecio.idlocalidad">
+
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="valor">Valor</label>
+              <input type="text" id="valor" name="valor" class="form-control" placeholder="Valor" [(ngModel)]="this.dataApiService.selectedPrecio.valor">
+
+            </div>
+
+          </div>
+         
+          
+          <button type="submit" class="btn btn-primary float-right">Guardar Precio</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 

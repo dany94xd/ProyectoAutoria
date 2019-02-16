@@ -4,7 +4,6 @@ export interface PrecioInterface {
     idlocalidad?:string;
     valor?:string;
     id?:string;
-    index?: string;
 
   }
   
