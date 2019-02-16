@@ -13,7 +13,7 @@ import { EventoInterface } from '../models/evento-interface';
 import { RecintoInterface } from '../models/recinto-interface';
 
 import { LocalidadInterface } from '../models/localidad-interface';
-
+import { BloqueInterface } from '../models/bloque-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +41,10 @@ localidad:Observable<any>;
 tarifas:Observable<any>;
 tarifa:Observable<any>;
 
+
+
+bloques:Observable<any>;
+bloque:Observable<any>;
 filas:Observable<any>;
 fila:Observable<any>;
 
@@ -56,7 +60,7 @@ fila:Observable<any>;
     oferta: ''
   };
 
-  public selectedFilas: FilaInterface={
+  public selectedFila: FilaInterface={
 
     id:null,
     idbloque:'',
@@ -95,6 +99,13 @@ fila:Observable<any>;
     descripcion:''
   };
 
+  public selectedBloque:BloqueInterface={
+    id:null,
+    idbloque:'',
+    idlocalidad:"",
+    descripcion:''
+  };
+
   public selectedTarifa:TarifaInterface={
     id:null,
     descripcion:'',
@@ -128,7 +139,12 @@ return this.http.get(url_api);
 getAllLocalidades(){
   const url_api= `http://localhost:3000/api/localidades`;
   return this.http.get(url_api);
-  }
+}
+
+getAllBloques(){
+  const url_api= `http://localhost:3000/api/bloques`;
+  return this.http.get(url_api);
+}
 
 getAllTarifas(){
   const url_api= `http://localhost:3000/api/tarifas`;
@@ -173,6 +189,11 @@ getAllFilas(){
   getLocalidadById(id:string){
     const url_api=`http://localhost:3000/api/localidades/${id}`;
     return (this.localidad = this.http.get(url_api))
+  }
+
+  getBloqueById(id:string){
+    const url_api=`http://localhost:3000/api/bloques/${id}`;
+    return (this.bloque = this.http.get(url_api))
   }
 
   
@@ -221,6 +242,14 @@ getFilaById(id:string){
     const url_api = `http://localhost:3000/api/localidades?access_token=${token}`;
     return this.http
     .post<LocalidadInterface>(url_api,localidad,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
+  saveBloque(bloque:BloqueInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/bloques?access_token=${token}`;
+    return this.http
+    .post<BloqueInterface>(url_api,bloque,{headers:this.headers})
     .pipe(map(data=>data));
   }
 
@@ -279,6 +308,15 @@ updateLocalidad(localidad){
   const url_api=`http://localhost:3000/api/localidades/${localidadId}/?access_token=${token}`;
   return this.http
   .put<LocalidadInterface>(url_api,localidad ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+updateBloque(bloque){
+  const bloqueId= bloque.bloqueId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/bloques/${bloqueId}/?access_token=${token}`;
+  return this.http
+  .put<BloqueInterface>(url_api,bloque ,{headers:this.headers})
   .pipe(map(data=>data));
 }
 
@@ -345,6 +383,15 @@ deleteLocalidad(id:string){
   .delete<LocalidadInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+deleteBloque(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/bloques/${id}/?access_token=${token}`;
+  return this.http
+  .delete<BloqueInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
 deleteTarifa(id:string){
   const token = this.authService.getToken();
   const url_api = `http://localhost:3000/api/tarifas/${id}/?access_token=${token}`;
