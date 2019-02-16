@@ -77,7 +77,21 @@ onSavePrecio(precioForm:NgForm):void{
 
   }else{
     this.dataApiService.updatePrecio(precioForm.value).subscribe(precio=>location.reload());
+
+
+
   }
 }
 
+
+onSaveBloque(bloqueForm:NgForm):void{
+  if(bloqueForm.value.bloqueId == null){
+    this.dataApiService.saveBloque(bloqueForm.value)
+    .subscribe(bloque=>location.reload());
+
+  }else{
+    this.dataApiService.updateBloque(bloqueForm.value)
+    .subscribe(bloque=>location.reload());
+  }
+}
 }

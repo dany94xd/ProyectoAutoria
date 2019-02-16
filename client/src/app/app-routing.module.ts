@@ -17,6 +17,7 @@ import {ListLocalidadesComponent} from 'src/app/components/admin/list-localidade
 import {ListPreciosComponent} from 'src/app/components/admin/list-precios/list-precios.component';
 
 
+import {ListBloquesComponent} from 'src/app/components/admin/list-bloques/list-bloques.component';
 
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
@@ -34,8 +35,8 @@ const routes: Routes = [
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] }, // TODO: only users auth
-  { path:'evento/:id' , component:DetailsEventoComponent},
-  { path:'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
+  { path: 'evento/:id' , component:DetailsEventoComponent},
+  { path: 'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
   
   { path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
 
@@ -44,6 +45,12 @@ const routes: Routes = [
   {path:'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
   {path:'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   {path:'admin/list-precios',component:ListPreciosComponent,canActivate:[AuthGuard]},
+  { path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
+  { path: 'admin/list-localidades', component: ListLocalidadesComponent, canActivate:[AuthGuard]},
+  //{path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
+  { path: 'admin/list-bloques', component: ListBloquesComponent, canActivate:[AuthGuard]},
+  { path: 'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
+  { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: ContactanosComponent },
   { path: '**', component: Page404Component },
