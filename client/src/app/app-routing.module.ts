@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NosotrosComponent } from 'src/app/components/user/nosotros/nosotros.component';
 import { ContactanosComponent } from 'src/app/components/user/contactanos/contactanos.component';
-import { OffersComponent } from 'src/app/components/offers/offers.component';
+import { OffersComponent } from 'src/app/components/user/offers/offers.component';
 import { DetailsBookComponent } from 'src/app/components/details-book/details-book.component';
 import { ListBooksComponent } from 'src/app/components/admin/list-books/list-books.component';
 import{ListEventosComponent} from 'src/app/components/admin/list-eventos/list-eventos.component';
@@ -25,7 +25,7 @@ import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'offers', component: OffersComponent, canActivate: [AuthGuard] }, // TODO: only users auth
+  { path: 'user/offers', component: OffersComponent }, 
   { path: 'book/:id', component: DetailsBookComponent },
   { path: 'admin/list-books', component: ListBooksComponent, canActivate: [AuthGuard] }, // TODO: only users auth
   { path: 'user/login', component: LoginComponent },

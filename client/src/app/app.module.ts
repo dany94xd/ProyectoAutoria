@@ -11,7 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
 import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { OffersComponent } from './components/offers/offers.component';
+import { OffersComponent } from './components/user/offers/offers.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { DetailsBookComponent } from './components/details-book/details-book.component';
 import { ListBooksComponent } from './components/admin/list-books/list-books.component';
