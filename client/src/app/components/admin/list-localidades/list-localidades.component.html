@@ -6,7 +6,7 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col"> Localidad</th>
+          <th scope="col">Localidad</th>
           <th scope="col">Recinto</th>
           <th scope="col">Caracter</th>
           <th scope="col">Descripcion</th>
@@ -23,10 +23,10 @@
           <td>{{localidad.caracter}}</td>
           <td>{{localidad.descripcion}}</td>
           <td>
-            <button class="btn btn-primary" (click)="onPreUpdateLocalidad(localidad)" data-toggle="modal" data-target="#modalLocalidad">Update</button>
+            <button class="btn btn-primary" (click)="onPreUpdateLocalidad(localidad)" data-toggle="modal" data-target="#modalLocalidad">Actualizar</button>
           </td>
           <td>
-            <a href="/admin/list-localidades" class="btn btn-danger" (click)="onDeleteLocalidad(localidad.id)">Delete</a>
+            <a href="/admin/list-localidades" class="btn btn-danger" (click)="onDeleteLocalidad(localidad.id)">Borrar</a>
           </td>
         </tr>
 

@@ -38,9 +38,11 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
 import { ListFilasComponent } from './components/admin/list-filas/list-filas.component';
 
 import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
-import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
+//import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
 import { ListBloquesComponent } from './components/admin/list-bloques/list-bloques.component';
 import { ListAsientosComponent } from './components/admin/list-asientos/list-asientos.component';
+
+import { ListTicketsComponent } from './components/admin/list-tickets/list-tickets.component';
 
 @NgModule({
   declarations: [
@@ -69,9 +71,15 @@ import { ListAsientosComponent } from './components/admin/list-asientos/list-asi
     ListFilasComponent,
     ListLocalidadesComponent,
     ListPreciosComponent,
+<<<<<<< HEAD
     ListTickestComponent,
     ListBloquesComponent,
     ListAsientosComponent
+=======
+    //ListTickestComponent,
+    ListBloquesComponent,    
+    ListTicketsComponent
+>>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],

@@ -18,6 +18,7 @@ import {ListPreciosComponent} from 'src/app/components/admin/list-precios/list-p
 import {ListAsientosComponent} from 'src/app/components/admin/list-asientos/list-asientos.component';
 
 import {ListBloquesComponent} from 'src/app/components/admin/list-bloques/list-bloques.component';
+import {ListTicketsComponent} from 'src/app/components/admin/list-tickets/list-tickets.component';
 
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
@@ -49,6 +50,11 @@ const routes: Routes = [
   { path: 'admin/list-localidades', component: ListLocalidadesComponent, canActivate:[AuthGuard]},
   //{path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-bloques', component: ListBloquesComponent, canActivate:[AuthGuard]},
+<<<<<<< HEAD
+=======
+  { path: 'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
+  { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
+>>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-asientos',component:ListAsientosComponent,canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
