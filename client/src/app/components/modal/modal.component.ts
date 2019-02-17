@@ -105,4 +105,17 @@ onSaveBloque(bloqueForm:NgForm):void{
     .subscribe(bloque=>location.reload());
   }
 }
+
+onSaveTicket(ticketForm:NgForm):void{
+  if(ticketForm.value.ticketId == null){
+    this.dataApiService.saveTicket(ticketForm.value)
+    .subscribe(ticket=>location.reload());
+
+  }else{
+    this.dataApiService.updateTicket(ticketForm.value)
+    .subscribe(ticket=>location.reload());
+  }
+}
+
+
 }

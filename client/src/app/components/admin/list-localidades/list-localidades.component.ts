@@ -25,13 +25,13 @@ export class ListLocalidadesComponent implements OnInit {
   }
 
   onDeleteLocalidad(id: string): void {
-    if (confirm('Are you sure to delete?')) {
+    if (confirm('Está seguro de eliminar?')) {
       this.dataApiService.deleteLocalidad(id).subscribe();
     }
   }
 
   onPreUpdateLocalidad(localidad: LocalidadInterface): void {
-    this.dataApiService.selectedRecinto = Object.assign({}, localidad);
+    this.dataApiService.selectedLocalidad = Object.assign({}, localidad);
   }
 
   resetForm(localidadForm?: NgForm): void {
@@ -39,8 +39,7 @@ export class ListLocalidadesComponent implements OnInit {
       idlocalidad: null,
       idrecinto:'',
       caracter:'',      
-      descripcion:''
-     
+      descripcion:''     
     };
   }
   

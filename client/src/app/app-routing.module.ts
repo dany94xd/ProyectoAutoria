@@ -18,6 +18,7 @@ import {ListPreciosComponent} from 'src/app/components/admin/list-precios/list-p
 
 
 import {ListBloquesComponent} from 'src/app/components/admin/list-bloques/list-bloques.component';
+import {ListTicketsComponent} from 'src/app/components/admin/list-tickets/list-tickets.component';
 
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
   //{path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-bloques', component: ListBloquesComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
+  { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: ContactanosComponent },

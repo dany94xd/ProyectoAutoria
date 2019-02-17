@@ -18,6 +18,9 @@ import { PrecioInterface } from '../models/precio-interface';
 
 import { BloqueInterface } from '../models/bloque-interface';
 
+import { TicketInterface } from '../models/ticket-interface';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,12 +44,14 @@ localidad:Observable<any>;
 tarifas:Observable<any>;
 tarifa:Observable<any>;
 
-
-
 bloques:Observable<any>;
 bloque:Observable<any>;
+
 filas:Observable<any>;
 fila:Observable<any>;
+
+tickets:Observable<any>;
+ticket:Observable<any>;
 
   public selectedBook: BookInterface = {
     id: null,
@@ -121,6 +126,17 @@ fila:Observable<any>;
     valor:''
   };
 
+  public selectedTicket:TicketInterface={
+    id: null,
+    idticket:'', 
+    idevento:'',
+    idprecio:'',
+    idtarifa:'',
+    idasiento:'',
+    valor:'',
+    codigo:''
+  };
+
 
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -167,6 +183,11 @@ getAllFilas(){
 
 getAllPrecios(){
   const url_api= `http://localhost:3000/api/precios`;
+  return this.http.get(url_api);
+}
+
+getAllTickets(){
+  const url_api= `http://localhost:3000/api/tickets`;
   return this.http.get(url_api);
 }
 
@@ -222,7 +243,12 @@ getFilaById(id:string){
 }
 
 getPrecioById(id:string){
-  const url_api=`http://localhost:3000/api/precio/${id}`;
+  const url_api=`http://localhost:3000/api/precios/${id}`;
+  return (this.precios = this.http.get(url_api))
+}
+
+getTicketById(id:string){
+  const url_api=`http://localhost:3000/api/tickets/${id}`;
   return (this.precios = this.http.get(url_api))
 }
 
@@ -288,11 +314,20 @@ getPrecioById(id:string){
     .post<FilaInterface>(url_api,fila,{headers:this.headers})
     .pipe(map(data=>data));
   }
+
   savePrecio(precio:PrecioInterface){
     const token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/precios?access_token=${token}`;
     return this.http
     .post<PrecioInterface>(url_api,precio,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
+  saveTicket(ticket:TicketInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/tickets?access_token=${token}`;
+    return this.http
+    .post<TicketInterface>(url_api,ticket,{headers:this.headers})
     .pipe(map(data=>data));
   }
 
@@ -354,8 +389,6 @@ updateTarifa(tarifa){
   .pipe(map(data=>data));
 }
 
-
-
 updateFila(fila){
   const filaId= fila.filaId;
   const token= this.authService.getToken();
@@ -374,7 +407,14 @@ updatePrecio(precio){
   .pipe(map(data=>data));
 }
 
-
+updateTicket(ticket){
+  const ticketId= ticket.ticketId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/tickets/${ticketId}/?access_token=${token}`;
+  return this.http
+  .put<TicketInterface>(url_api,ticket ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 
 
 //////////////////////////////////////////////////////////////////////777777
@@ -449,9 +489,13 @@ deletePrecio(id:string){
   .pipe(map(data=>data));
 }
 
-
-
-
+deleteTicket(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/tickets/${id}/?access_token=${token}`;
+  return this.http
+  .delete<TicketInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 
 
 }
