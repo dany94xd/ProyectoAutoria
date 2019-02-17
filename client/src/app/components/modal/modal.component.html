@@ -446,4 +446,62 @@
   </div>
 </div>
 
+<!-- Asientos -->
+
+<div id="modalAsiento" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+    
+           <div class="modal-content" >
+            
+              <div class="modal-header">
+                  <h5 class="modal-title" 
+                  id="exampleModalLabel">{{!this.dataApiService.selectedAsiento.id ? 'New Asiento' : 'Update Asiento'}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+              </div>
+    
+    
+              <div class="modal-body">
+    
+                <form class="form-asiento" #formAsiento="ngForm" (ngSubmit)="onSaveAsiento(formAsiento)">
+                  <input type="hidden" id="asientoId" name="asientoId" class="form-control" [(ngModel)]="this.dataApiService.selectedAsiento.id">
+                  <div class="form-group">
+                      <label for="idasiento">Asiento</label>
+                      <input type="text" id="idasiento" name="idasiento" class="form-control" placeholder="Asiento" [(ngModel)]="this.dataApiService.selectedAsiento.idasiento">
+                    </div>
+                  
+                  
+                  <div class="form-group">
+                      <label for="idfila">Fila</label>
+                      <input type="text" id="idfila" name="idfila" class="form-control" placeholder="Fila" [(ngModel)]="this.dataApiService.selectedAsiento.idfila">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="this.dataApiService.selectedAsiento.nombre">
+                      </div>
+    
+              
+                     
+    
+
+                      <button type="submit" class="btn btn-primary float-right">Guardar Asiento</button>
+    
+    
+    
+    
+                </form>
+               
+              </div>
+  
+    
+           </div>
+    
+        </div>
+    
+    
+    </div>
+    
+
 

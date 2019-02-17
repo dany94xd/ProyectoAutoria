@@ -70,5 +70,9 @@
   "localidad": {
     "dataSource": "db",
     "public": true
+  },
+  "asiento": {
+    "dataSource": "db",
+    "public": true
   }
 }

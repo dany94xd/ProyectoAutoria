@@ -105,4 +105,19 @@ onSaveBloque(bloqueForm:NgForm):void{
     .subscribe(bloque=>location.reload());
   }
 }
+
+
+onSaveAsiento(asientoForm:NgForm):void{
+  if(asientoForm.value.asientoId == null){
+    this.dataApiService.saveAsiento(asientoForm.value)
+    .subscribe(asiento=>location.reload());
+
+  }else{
+    this.dataApiService.updateAsiento(asientoForm.value)
+    .subscribe(asiento=>{
+      return location.reload();
+    });
+  }
+}
+
 }

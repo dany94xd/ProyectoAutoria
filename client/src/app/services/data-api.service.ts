@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import {BookInterface } from '../models/book-interface';
 import {TarifaInterface} from '../models/tarifa-interface';
 import {FilaInterface} from '../models/fila-interface';
+import { AsientoInterface } from '../models/asiento-interface';
 
 
 import { AuthService } from './auth.service';
@@ -40,6 +41,11 @@ localidad:Observable<any>;
 
 tarifas:Observable<any>;
 tarifa:Observable<any>;
+
+
+asientos:Observable<any>;
+asiento:Observable<any>;
+
 
 
 
@@ -122,6 +128,19 @@ fila:Observable<any>;
   };
 
 
+
+
+
+
+
+  public selectedAsiento:AsientoInterface={
+    id: null,
+    idasiento:'',
+    idfila:'',
+    nombre:''
+  };
+
+
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: this.authService.getToken()
@@ -167,6 +186,11 @@ getAllFilas(){
 
 getAllPrecios(){
   const url_api= `http://localhost:3000/api/precios`;
+  return this.http.get(url_api);
+}
+
+getAllAsientos(){
+  const url_api= `http://localhost:3000/api/asientos`;
   return this.http.get(url_api);
 }
 
@@ -224,6 +248,11 @@ getFilaById(id:string){
 getPrecioById(id:string){
   const url_api=`http://localhost:3000/api/precio/${id}`;
   return (this.precios = this.http.get(url_api))
+}
+
+getAsientoById(id:string){
+  const url_api=`http://localhost:3000/api/asientos/${id}`;
+  return (this.asientos = this.http.get(url_api))
 }
 
 ////////////////////////////////////////////////////////////
@@ -293,6 +322,14 @@ getPrecioById(id:string){
     const url_api = `http://localhost:3000/api/precios?access_token=${token}`;
     return this.http
     .post<PrecioInterface>(url_api,precio,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
+  saveAsiento(asiento:AsientoInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/asientos?access_token=${token}`;
+    return this.http
+    .post<AsientoInterface>(url_api,asiento,{headers:this.headers})
     .pipe(map(data=>data));
   }
 
@@ -374,6 +411,16 @@ updatePrecio(precio){
   .pipe(map(data=>data));
 }
 
+updateAsiento(asiento){
+  const asientoId= asiento.asientoId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/asientos/${asientoId}/?access_token=${token}`;
+  return this.http
+  .put<AsientoInterface>(url_api,asiento ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+
 
 
 
@@ -450,6 +497,14 @@ deletePrecio(id:string){
 }
 
 
+
+deleteAsiento(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/asientos/${id}/?access_token=${token}`;
+  return this.http
+  .delete<AsientoInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
 
 
 

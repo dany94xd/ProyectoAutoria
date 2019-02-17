@@ -40,6 +40,7 @@ import { ListFilasComponent } from './components/admin/list-filas/list-filas.com
 import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
 import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
 import { ListBloquesComponent } from './components/admin/list-bloques/list-bloques.component';
+import { ListAsientosComponent } from './components/admin/list-asientos/list-asientos.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ListBloquesComponent } from './components/admin/list-bloques/list-bloqu
     ListLocalidadesComponent,
     ListPreciosComponent,
     ListTickestComponent,
-    ListBloquesComponent
+    ListBloquesComponent,
+    ListAsientosComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
