@@ -3,8 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NosotrosComponent } from 'src/app/components/user/nosotros/nosotros.component';
 import { PortfolioComponent } from 'src/app/components/user/portfolio/portfolio.component';
+import { ComprarComponent } from 'src/app/components/user/comprar/comprar.component';
 import { ContactanosComponent } from 'src/app/components/user/contactanos/contactanos.component';
 import { OffersComponent } from 'src/app/components/user/offers/offers.component';
+
+
+
 import { DetailsBookComponent } from 'src/app/components/details-book/details-book.component';
 import { ListBooksComponent } from 'src/app/components/admin/list-books/list-books.component';
 import{ListEventosComponent} from 'src/app/components/admin/list-eventos/list-eventos.component';
@@ -31,33 +35,33 @@ import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'user/offers', component: OffersComponent }, 
   { path: 'book/:id', component: DetailsBookComponent },
-  { path: 'admin/list-books', component: ListBooksComponent, canActivate: [AuthGuard] }, // TODO: only users auth
+
+  { path: 'user/offers', component: OffersComponent }, 
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] }, // TODO: only users auth
   { path: 'evento/:id' , component:DetailsEventoComponent},
+  { path: 'user/portfolio',component:PortfolioComponent},
+  { path: 'user/nosotros', component: NosotrosComponent },
+  { path: 'user/contactanos', component: ContactanosComponent },
+  { path: 'user/comprar', component: ComprarComponent },
+
   { path: 'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
-  
+  { path: 'admin/list-books', component: ListBooksComponent, canActivate: [AuthGuard] }, // TODO: only users auth
   { path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
-
-
-  {path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
-  {path:'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
-  {path:'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
-  {path:'admin/list-precios',component:ListPreciosComponent,canActivate:[AuthGuard]},
+  { path:'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
+  { path:'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
+  { path:'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
+  { path:'admin/list-precios',component:ListPreciosComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-localidades', component: ListLocalidadesComponent, canActivate:[AuthGuard]},
-  //{path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-bloques', component: ListBloquesComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-asientos',component:ListAsientosComponent,canActivate:[AuthGuard]},
-  { path: 'user/portfolio',component:PortfolioComponent},
-  { path: 'user/nosotros', component: NosotrosComponent },
-  { path: 'user/contactanos', component: ContactanosComponent },
+
   { path: '**', component: Page404Component },
  
 ];

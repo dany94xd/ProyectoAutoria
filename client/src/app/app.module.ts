@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
 import { PortfolioComponent } from './components/user/portfolio/portfolio.component';
 import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
+import { ComprarComponent } from './components/user/comprar/comprar.component';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffersComponent } from './components/user/offers/offers.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -37,7 +39,6 @@ import { ListTarifaComponent } from './components/admin/list-tarifa/list-tarifa.
 import { ListFilasComponent } from './components/admin/list-filas/list-filas.component';
 
 import { ListPreciosComponent } from './components/admin/list-precios/list-precios.component';
-//import { ListTickestComponent } from './components/admin/list-tickest/list-tickest.component';
 import { ListBloquesComponent } from './components/admin/list-bloques/list-bloques.component';
 import { ListAsientosComponent } from './components/admin/list-asientos/list-asientos.component';
 
@@ -50,6 +51,7 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     NosotrosComponent,
     PortfolioComponent,
     ContactanosComponent,
+    ComprarComponent,
     NavbarComponent,
     OffersComponent,
     HeroComponent,
@@ -72,7 +74,6 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     ListLocalidadesComponent,
     ListPreciosComponent,
     ListAsientosComponent,
-    //ListTickestComponent,
     ListBloquesComponent,    
     ListTicketsComponent
 
