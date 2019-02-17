@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NosotrosComponent } from 'src/app/components/user/nosotros/nosotros.component';
+import { PortfolioComponent } from 'src/app/components/user/portfolio/portfolio.component';
 import { ContactanosComponent } from 'src/app/components/user/contactanos/contactanos.component';
 import { OffersComponent } from 'src/app/components/user/offers/offers.component';
 import { DetailsBookComponent } from 'src/app/components/details-book/details-book.component';
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-asientos',component:ListAsientosComponent,canActivate:[AuthGuard]},
+  { path: 'admin/portfolio',component:PortfolioComponent,canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: ContactanosComponent },
   { path: '**', component: Page404Component },

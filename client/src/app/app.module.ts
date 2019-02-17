@@ -3,12 +3,11 @@ import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
+import { PortfolioComponent } from './components/user/portfolio/portfolio.component';
 import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OffersComponent } from './components/user/offers/offers.component';
@@ -49,6 +48,7 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     AppComponent,
     HomeComponent,
     NosotrosComponent,
+    PortfolioComponent,
     ContactanosComponent,
     NavbarComponent,
     OffersComponent,
@@ -71,11 +71,11 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     ListFilasComponent,
     ListLocalidadesComponent,
     ListPreciosComponent,
-  
     ListAsientosComponent,
     //ListTickestComponent,
     ListBloquesComponent,    
     ListTicketsComponent
+
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
