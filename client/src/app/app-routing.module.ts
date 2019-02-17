@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-asientos',component:ListAsientosComponent,canActivate:[AuthGuard]},
-  { path: 'admin/portfolio',component:PortfolioComponent,canActivate:[AuthGuard]},
+  { path: 'user/portfolio',component:PortfolioComponent},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: ContactanosComponent },
   { path: '**', component: Page404Component },
