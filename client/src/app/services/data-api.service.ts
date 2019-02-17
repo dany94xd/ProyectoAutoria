@@ -45,7 +45,6 @@ localidad:Observable<any>;
 tarifas:Observable<any>;
 tarifa:Observable<any>;
 
-<<<<<<< HEAD
 
 asientos:Observable<any>;
 asiento:Observable<any>;
@@ -53,8 +52,6 @@ asiento:Observable<any>;
 
 
 
-=======
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
 bloques:Observable<any>;
 bloque:Observable<any>;
 
@@ -210,13 +207,13 @@ getAllPrecios(){
   return this.http.get(url_api);
 }
 
-<<<<<<< HEAD
 getAllAsientos(){
   const url_api= `http://localhost:3000/api/asientos`;
-=======
+  return this.http.get(url_api);
+}
+
 getAllTickets(){
   const url_api= `http://localhost:3000/api/tickets`;
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
   return this.http.get(url_api);
 }
 
@@ -357,19 +354,19 @@ getAsientoById(id:string){
     .pipe(map(data=>data));
   }
 
-<<<<<<< HEAD
   saveAsiento(asiento:AsientoInterface){
     const token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/asientos?access_token=${token}`;
     return this.http
     .post<AsientoInterface>(url_api,asiento,{headers:this.headers})
-=======
+    .pipe(map(data=>data));
+   } 
+   
   saveTicket(ticket:TicketInterface){
     const token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/tickets?access_token=${token}`;
     return this.http
     .post<TicketInterface>(url_api,ticket,{headers:this.headers})
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
     .pipe(map(data=>data));
   }
 
@@ -449,7 +446,6 @@ updatePrecio(precio){
   .pipe(map(data=>data));
 }
 
-<<<<<<< HEAD
 updateAsiento(asiento){
   const asientoId= asiento.asientoId;
   const token= this.authService.getToken();
@@ -461,7 +457,6 @@ updateAsiento(asiento){
 
 
 
-=======
 updateTicket(ticket){
   const ticketId= ticket.ticketId;
   const token= this.authService.getToken();
@@ -470,7 +465,6 @@ updateTicket(ticket){
   .put<TicketInterface>(url_api,ticket ,{headers:this.headers})
   .pipe(map(data=>data));
 }
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
 
 
 //////////////////////////////////////////////////////////////////////777777
@@ -545,7 +539,6 @@ deletePrecio(id:string){
   .pipe(map(data=>data));
 }
 
-<<<<<<< HEAD
 
 
 deleteAsiento(id:string){
@@ -557,7 +550,6 @@ deleteAsiento(id:string){
 }
 
 
-=======
 deleteTicket(id:string){
   const token = this.authService.getToken();
   const url_api = `http://localhost:3000/api/tickets/${id}/?access_token=${token}`;
@@ -565,7 +557,6 @@ deleteTicket(id:string){
   .delete<TicketInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
 
 
 }

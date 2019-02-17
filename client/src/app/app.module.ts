@@ -71,15 +71,11 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     ListFilasComponent,
     ListLocalidadesComponent,
     ListPreciosComponent,
-<<<<<<< HEAD
-    ListTickestComponent,
-    ListBloquesComponent,
-    ListAsientosComponent
-=======
+  
+    ListAsientosComponent,
     //ListTickestComponent,
     ListBloquesComponent,    
     ListTicketsComponent
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],

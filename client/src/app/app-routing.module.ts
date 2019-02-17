@@ -50,11 +50,8 @@ const routes: Routes = [
   { path: 'admin/list-localidades', component: ListLocalidadesComponent, canActivate:[AuthGuard]},
   //{path: 'admin/list-recintos', component: ListRecintosComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-bloques', component: ListBloquesComponent, canActivate:[AuthGuard]},
-<<<<<<< HEAD
-=======
   { path: 'admin/list-tarifa',component:ListTarifaComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-asientos',component:ListAsientosComponent,canActivate:[AuthGuard]},
   { path: 'user/nosotros', component: NosotrosComponent },

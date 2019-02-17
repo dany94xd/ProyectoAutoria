@@ -106,7 +106,6 @@ onSaveBloque(bloqueForm:NgForm):void{
   }
 }
 
-<<<<<<< HEAD
 
 onSaveAsiento(asientoForm:NgForm):void{
   if(asientoForm.value.asientoId == null){
@@ -121,7 +120,6 @@ onSaveAsiento(asientoForm:NgForm):void{
   }
 }
 
-=======
 onSaveTicket(ticketForm:NgForm):void{
   if(ticketForm.value.ticketId == null){
     this.dataApiService.saveTicket(ticketForm.value)
@@ -134,5 +132,4 @@ onSaveTicket(ticketForm:NgForm):void{
 }
 
 
->>>>>>> b4eeed2e69ab295e5226bdc3cc49288d52caa309
 }
