@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl , Validators} from '@angular/forms';
 import { DataApiService } from "../../../services/data-api.service";
 
 @Component({
@@ -10,7 +10,10 @@ import { DataApiService } from "../../../services/data-api.service";
 export class FormComponent implements OnInit {
 
   name = new FormControl('');
-  email = new FormControl('');
+  email = new FormControl('',[
+    Validators.required,
+    Validators.email
+  ]);
 
   constructor(public http: DataApiService) { }
 
@@ -25,9 +28,11 @@ export class FormComponent implements OnInit {
     this.http.sendEmail("http://localhost:4000/sendmail", user).subscribe(
       data => {
         let res:any = data; 
+        alert("Mensaje Enviado Correctamente")
         console.log(
-          `👏 > 👏 > 👏 > 👏 ${user.name} is successfully register and mail has been sent and the message id is ${res.messageId}`
+          `${user.name} is successfully register and mail has been sent and the message id is ${res.messageId}`
         );
+        this.limpiarForm()
       },
       err => {
         console.log(err);
@@ -36,5 +41,10 @@ export class FormComponent implements OnInit {
         
       }
     );
+  }
+
+
+  limpiarForm(){
+    window.location.reload();
   }
 }

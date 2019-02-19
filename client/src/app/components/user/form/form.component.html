@@ -2,13 +2,47 @@
   form works!
 </p>
 
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-</label>
-<label>
-  Email:
-  <input type="text" [formControl]="email">
-</label>
+<div class="row">
 
-<button (click)="enviarMail()">Enviar</button>
+  <div class="col">
+      <h2>Envíanos tus comentarios y sugerencias</h2>
+  <label>
+    Nombre:
+    <br><input type="text" [formControl]="name" size="40">
+    
+  </label><br>
+  <label>
+    Email:
+    <br><input type="text" [formControl]="email" size="40">
+    <div *ngIf="email.hasError('email')">
+      Ingrese un email valido
+    </div>
+  </label><br>
+  <label>
+    Mensaje:
+    <br><textarea name="" id="" cols="40" rows="5"></textarea>
+  </label><br>
+  <button class="btn btn-primary" (click)="enviarMail()">Enviar</button>
+
+  </div>
+  
+  <div class="col">
+     
+          <ul class="list-unstyled mb-0">
+            <li>
+              <i class="fas fa-map-marked fa-2x blue-text"></i>
+              <p>Guayaquil, Colon 530 y Boyaca, Ecuador</p>
+            </li>
+            <li>
+              <i class="fas fa-phone fa-2x mt-4 blue-text"></i>
+              <p>+ 593 947161198 </p>
+            </li>
+            <li>
+              <i class="fas fa-envelope fa-2x mt-4 blue-text"></i>
+              <p class="mb-0">ventas@eventum.com</p>
+            </li>
+          </ul>
+        
+  </div>
+
+</div>
