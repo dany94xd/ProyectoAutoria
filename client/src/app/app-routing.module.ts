@@ -4,7 +4,6 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 import { NosotrosComponent } from 'src/app/components/user/nosotros/nosotros.component';
 import { PortfolioComponent } from 'src/app/components/user/portfolio/portfolio.component';
 import { ComprarComponent } from 'src/app/components/user/comprar/comprar.component';
-import { ContactanosComponent } from 'src/app/components/user/contactanos/contactanos.component';
 import { OffersComponent } from 'src/app/components/user/offers/offers.component';
 
 
@@ -25,6 +24,8 @@ import {ListAsientosComponent} from 'src/app/components/admin/list-asientos/list
 import {ListBloquesComponent} from 'src/app/components/admin/list-bloques/list-bloques.component';
 import {ListTicketsComponent} from 'src/app/components/admin/list-tickets/list-tickets.component';
 
+import {FormComponent} from 'src/app/components/user/form/form.component'
+
 import { LoginComponent } from 'src/app/components/user/login/login.component';
 import { RegisterComponent } from 'src/app/components/user/register/register.component';
 import { ProfileComponent } from 'src/app/components/user/profile/profile.component';
@@ -44,7 +45,7 @@ const routes: Routes = [
   { path: 'evento/:id' , component:DetailsEventoComponent},
   { path: 'user/portfolio',component:PortfolioComponent},
   { path: 'user/nosotros', component: NosotrosComponent },
-  { path: 'user/contactanos', component: ContactanosComponent },
+  { path: 'user/contactanos', component: FormComponent },
   { path: 'user/comprar', component: ComprarComponent },
 
   { path: 'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},

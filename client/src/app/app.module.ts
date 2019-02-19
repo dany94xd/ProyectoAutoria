@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
 import { PortfolioComponent } from './components/user/portfolio/portfolio.component';
-import { ContactanosComponent } from './components/user/contactanos/contactanos.component';
 import { ComprarComponent } from './components/user/comprar/comprar.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -43,6 +42,9 @@ import { ListBloquesComponent } from './components/admin/list-bloques/list-bloqu
 import { ListAsientosComponent } from './components/admin/list-asientos/list-asientos.component';
 
 import { ListTicketsComponent } from './components/admin/list-tickets/list-tickets.component';
+import { FormComponent } from './components/user/form/form.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,6 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     HomeComponent,
     NosotrosComponent,
     PortfolioComponent,
-    ContactanosComponent,
     ComprarComponent,
     NavbarComponent,
     OffersComponent,
@@ -75,10 +76,10 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
     ListPreciosComponent,
     ListAsientosComponent,
     ListBloquesComponent,    
-    ListTicketsComponent
-
+    ListTicketsComponent, 
+    FormComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],
   bootstrap: [AppComponent]
   

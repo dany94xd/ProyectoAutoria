@@ -1,0 +1,14 @@
+<p>
+  form works!
+</p>
+
+<label>
+  Name:
+  <input type="text" [formControl]="name">
+</label>
+<label>
+  Email:
+  <input type="text" [formControl]="email">
+</label>
+
+<button (click)="enviarMail()">Enviar</button>

@@ -559,4 +559,8 @@ deleteTicket(id:string){
 }
 
 
+sendEmail(url, data) {
+  return this.http.post(url, data);
+}
+
 }
