@@ -20,6 +20,8 @@ import { PrecioInterface } from '../models/precio-interface';
 import { BloqueInterface } from '../models/bloque-interface';
 
 import { TicketInterface } from '../models/ticket-interface';
+import { UserInterface } from '../models/user-interface';
+
 
 
 @Injectable({
@@ -50,8 +52,6 @@ asientos:Observable<any>;
 asiento:Observable<any>;
 
 
-
-
 bloques:Observable<any>;
 bloque:Observable<any>;
 
@@ -60,6 +60,10 @@ fila:Observable<any>;
 
 tickets:Observable<any>;
 ticket:Observable<any>;
+
+usuarios:Observable<any>;
+usuario:Observable<any>;
+
 
   public selectedBook: BookInterface = {
     id: null,
@@ -146,6 +150,18 @@ ticket:Observable<any>;
   };
 
 
+  public selectedUsuario:UserInterface={
+    id:null,
+    name:'',
+    email:'',
+    password:'',
+    tipo:'',
+    idusuario:'',
+    edad:''
+    
+    
+
+  }
 
 
 
@@ -217,6 +233,11 @@ getAllTickets(){
   return this.http.get(url_api);
 }
 
+getAllUsuarios(){
+  const url_api= `http://localhost:3000/api/usuarios`;
+  return this.http.get(url_api);
+}
+
 ///////////////////////////////////////////////////////////////////////////////7
 //metodo traer select de ofertas
   getNotOffers() {
@@ -282,6 +303,12 @@ getAsientoById(id:string){
   const url_api=`http://localhost:3000/api/asientos/${id}`;
   return (this.asientos = this.http.get(url_api))
 }
+
+getUsuarioById(id:string){
+  const url_api=`http://localhost:3000/api/usuarios/${id}`;
+  return (this.usuarios = this.http.get(url_api))
+}
+
 
 ////////////////////////////////////////////////////////////
 // metodo guardar por post
@@ -369,6 +396,15 @@ getAsientoById(id:string){
     .post<TicketInterface>(url_api,ticket,{headers:this.headers})
     .pipe(map(data=>data));
   }
+
+  saveUsuarios(usuario:UserInterface){
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/usuarios?access_token=${token}`;
+    return this.http
+    .post<UserInterface>(url_api,usuario,{headers:this.headers})
+    .pipe(map(data=>data));
+  }
+
 
 ////////////////////////////////////////////////////////////////////////////
 // metodo put actualizar tablas
@@ -467,6 +503,16 @@ updateTicket(ticket){
 }
 
 
+updateUsuarios(usuario){
+  const usuarioId= usuario.usuarioId;
+  const token= this.authService.getToken();
+  const url_api=`http://localhost:3000/api/usuarios/${usuarioId}/?access_token=${token}`;
+  return this.http
+  .put<UserInterface>(url_api,usuario ,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
+
 //////////////////////////////////////////////////////////////////////777777
 // metodos borrar delete
 
@@ -557,6 +603,15 @@ deleteTicket(id:string){
   .delete<TicketInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
+
+deleteUsuario(id:string){
+  const token = this.authService.getToken();
+  const url_api = `http://localhost:3000/api/usuarios/${id}/?access_token=${token}`;
+  return this.http
+  .delete<UserInterface>(url_api,{headers:this.headers})
+  .pipe(map(data=>data));
+}
+
 
 
 sendEmail(url, data) {

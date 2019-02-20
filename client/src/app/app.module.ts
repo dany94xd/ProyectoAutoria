@@ -45,6 +45,7 @@ import { ListTicketsComponent } from './components/admin/list-tickets/list-ticke
 import { FormComponent } from './components/user/form/form.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListUsersComponent } from './components/admin/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListAsientosComponent,
     ListBloquesComponent,    
     ListTicketsComponent, 
-    FormComponent
+    FormComponent, ListUsersComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],

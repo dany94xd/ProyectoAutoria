@@ -9,8 +9,8 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
+        "@schematics/angular:component": {
+          "styleext": "scss"
         }
       },
       "architect": {
@@ -139,5 +139,10 @@
       }
     }
   },
-  "defaultProject": "front"
+  "defaultProject": "front",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
 }

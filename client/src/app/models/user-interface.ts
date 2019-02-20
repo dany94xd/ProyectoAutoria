@@ -3,4 +3,7 @@ export interface UserInterface {
   name?: string;
   email?: string;
   password?: string;
+  tipo?:string;
+  idusuario?:string;
+  edad?:string;
 }
