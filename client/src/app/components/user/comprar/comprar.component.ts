@@ -7,47 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComprarComponent implements OnInit {
 
-  texto: string =  "SI";
-  value: string =  "NO";
-  estado: boolean = true;
-
+ 
+  cantidad : number = 0;
   event: Event;
 
   onLoad(){
 
   }
 
-  cambiaEstado() {
-    this.texto = (this.estado) ?  "NO" : "SI";
-    this.estado= !this.estado; 
-  }
-
-  cambiaEstado2(event){
-    alert(event.target.id);
-    if (this.value == "NO"){
-      this.value = "SI";
-      this.cambiaEstado();
-    }else{
-      this.value = "NO";
-    }    
-  }
+  
   myEvent(event) {
     this.event = event;
-
-    if (event.target.class == "NO"){
-      event.target.class = "SI";
-      event.target.css = {'background-color': '#6c5'};
-      this.onLoad();
-      alert(event.target.class);  
-      
+    if (event.target.class == "SI"){
+        event.target.class = "NO";
+        event.target.style.backgroundColor = "goldenrod";
+        this.cantidad = this.cantidad - 1;
+    //    document.getElementById("canasientos").setAttribute.t
     }else{
-      event.target.class = "NO";
-      alert(event.target.class);
-      event.target.css = {'background-color': '#933'};
+      event.target.class = "SI";
+      this.cantidad = this.cantidad + 1;
+      event.target.style.backgroundColor = "blue";
       
     }    
   }
 
+  
   
 
   ngOnInit() {
@@ -68,6 +52,9 @@ export class ComprarComponent implements OnInit {
     },
     {
       "fila": "E",
+    },
+    {
+      "fila": "F",
     }
   ];
 

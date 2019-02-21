@@ -1,15 +1,12 @@
 button {   
-  
-   
-    color: white;
- 
-    width: 70px;
-    height: 60px;
+color: white;
+width: 90px;
+height: 60px;
 }
 
 .SI{
-    background-color: #6c5;
+    background-color:blue;
 }
 .NO{
-    background-color: #933;
+    background-color:goldenrod;
 }

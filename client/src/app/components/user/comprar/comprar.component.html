@@ -15,8 +15,8 @@
   <div style ="text-align: center">
      
           <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-primary">LIBRE</button>
-            <button type="button" class="btn btn-warning">OCUPADO</button>
+            <button type="button" class = "NO">LIBRE</button>
+            <button type="button" class = "SI">OCUPADO</button>
             
           </div>
     </div>
@@ -32,39 +32,34 @@
                   
                   <div class="btn-group mr-2" role="group" aria-label="First group">
                     <button id="{{fila['fila']}}1" class = "NO" (click)="myEvent($event)">1</button>
-                    <button id="{{fila['fila']}}2" class = "SI" (click)="myEvent($event)">2</button>
-                    <button id="{{fila['fila']}}3" (click)="myEvent($event)">3</button>
-                    <button id="{{fila['fila']}}4" (click)="myEvent($event)">4</button>
+                    <button id="{{fila['fila']}}2" class = "NO" (click)="myEvent($event)">2</button>
+                    <button id="{{fila['fila']}}3" class = "NO" (click)="myEvent($event)">3</button>
+                    <button id="{{fila['fila']}}4" class = "NO" (click)="myEvent($event)">4</button>
                   </div>
                   <div class="btn-group mr-2" role="group" aria-label="Second group">
-                    <button id="{{fila['fila']}}5" (click)="myEvent($event)">5</button>
-                    <button id="{{fila['fila']}}6" (click)="myEvent($event)">6</button>
-                    <button id="{{fila['fila']}}7" (click)="myEvent($event)">7</button>
-                    <button id="{{fila['fila']}}8" (click)="myEvent($event)">8</button>
+                    <button id="{{fila['fila']}}5" class = "NO" (click)="myEvent($event)">5</button>
+                    <button id="{{fila['fila']}}6" class = "NO" (click)="myEvent($event)">6</button>
+                    <button id="{{fila['fila']}}7" class = "NO" (click)="myEvent($event)">7</button>
+                    <button id="{{fila['fila']}}8" class = "NO" (click)="myEvent($event)">8</button>
                   </div>
                   <div class="btn-group mr-2" role="group" aria-label="Third group">
-                    <button id=" {{fila['fila']}}9" (click)="myEvent($event)">9</button>
-                    <button id=" {{fila['fila']}}10" (click)="myEvent($event)">10</button>
+                    <button id=" {{fila['fila']}}9" class = "NO" (click)="myEvent($event)">9</button>
+                    <button id=" {{fila['fila']}}10" class = "NO" (click)="myEvent($event)">10</button>
                   </div>
-                  <div class="btn-group mr-2" role="group" aria-label="Third group">
-                    <button id=" {{fila['fila']}}11" (click)="myEvent($event)">11</button>
-                    <button id=" {{fila['fila']}}12" (click)="myEvent($event)">12</button>
-          
-           
-                    </div>
+                
                 </div>
           </li>
          </ul>
          
          <!-- Grid column -->
 
-
+         <span id="canasientos">CANTIDAD DE ASIENTOS: {{cantidad}} </span>
   
     </div>
+
+    
   </div>
     <br>
 <br>
       
     
-         
-          
