@@ -32,7 +32,7 @@ import { ProfileComponent } from 'src/app/components/user/profile/profile.compon
 import { Page404Component } from 'src/app/components/page404/page404.component';
 
 import { AuthGuard } from './guards/auth.guard';
-import { from } from 'rxjs';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'user/portfolio',component:PortfolioComponent},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: FormComponent },
-  { path: 'user/comprar', component: ComprarComponent },
+  { path: 'user/comprar', component: ComprarComponent , canActivate: [AuthGuard]},
 
   { path: 'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-books', component: ListBooksComponent, canActivate: [AuthGuard] }, // TODO: only users auth
