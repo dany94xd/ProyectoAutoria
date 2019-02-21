@@ -23,7 +23,7 @@ import {ListAsientosComponent} from 'src/app/components/admin/list-asientos/list
 
 import {ListBloquesComponent} from 'src/app/components/admin/list-bloques/list-bloques.component';
 import {ListTicketsComponent} from 'src/app/components/admin/list-tickets/list-tickets.component';
-
+import {ListUsersComponent} from 'src/app/components/admin/list-users/list-users.component';
 import {FormComponent} from 'src/app/components/user/form/form.component'
 
 import { LoginComponent } from 'src/app/components/user/login/login.component';
@@ -62,6 +62,7 @@ const routes: Routes = [
   { path: 'admin/list-tickets', component: ListTicketsComponent, canActivate:[AuthGuard]},
   { path: 'admin/list-filas',component:ListFilasComponent,canActivate:[AuthGuard]},
   { path: 'admin/list-asientos',component:ListAsientosComponent,canActivate:[AuthGuard]},
+  {path: 'admin/list-users',component:ListUsersComponent,canActivate:[AuthGuard]},
 
   { path: '**', component: Page404Component },
  

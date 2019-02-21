@@ -1,61 +1,47 @@
 {
-  "name": "User",
-  "plural":"Users",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "nombre": {
-      "type": "string",
-      "required": true
+    "name": "user",
+    "plural": "users",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
     },
-    "email": {
-      "type": "string",
-      "required": true
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "email": {
+        "type": "string",
+        "required": true
+      },
+      "password": {
+        "type": "string",
+        "required": true
+      }
     },
-    "password": {
-      "type": "string",
-      "required": true
-    },
-    "tipo": {
-      "type": "string",
-      "required": true
-    },
-    "idusuario": {
-      "type": "string",
-      "required": true
-    },
-    "edad": {
-      "type": "string",
-      "required": true
-    }
-
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "DENY"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    }
-
-
-  ],
-  "methods": {}
-}
+    "validations": [],
+    "relations": {},
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "DENY"
+      },
+      {
+        "accessType": "READ",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW"
+      }
+    ],
+    "methods": {}
+  }
+  
