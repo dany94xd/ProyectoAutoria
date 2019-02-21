@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NosotrosComponent } from './components/user/nosotros/nosotros.component';
 import { PortfolioComponent } from './components/user/portfolio/portfolio.component';
+import { LocalidadComponent } from './components/user/localidad/localidad.component';
 import { ComprarComponent } from './components/user/comprar/comprar.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -53,6 +54,7 @@ import { ListUsersComponent } from './components/admin/list-users/list-users.com
     HomeComponent,
     NosotrosComponent,
     PortfolioComponent,
+    LocalidadComponent,
     ComprarComponent,
     NavbarComponent,
     OffersComponent,

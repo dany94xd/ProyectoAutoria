@@ -5,7 +5,7 @@ import { NosotrosComponent } from 'src/app/components/user/nosotros/nosotros.com
 import { PortfolioComponent } from 'src/app/components/user/portfolio/portfolio.component';
 import { ComprarComponent } from 'src/app/components/user/comprar/comprar.component';
 import { OffersComponent } from 'src/app/components/user/offers/offers.component';
-
+import { LocalidadComponent } from 'src/app/components/user/localidad/localidad.component';
 
 
 import { DetailsBookComponent } from 'src/app/components/details-book/details-book.component';
@@ -46,6 +46,8 @@ const routes: Routes = [
   { path: 'user/portfolio',component:PortfolioComponent},
   { path: 'user/nosotros', component: NosotrosComponent },
   { path: 'user/contactanos', component: FormComponent },
+  { path: 'user/localidad', component: LocalidadComponent , canActivate: [AuthGuard]},
+  { path: 'user/localidad/:id', component: LocalidadComponent , canActivate: [AuthGuard]},
   { path: 'user/comprar', component: ComprarComponent , canActivate: [AuthGuard]},
 
   { path: 'admin/list-eventos',component:ListEventosComponent,canActivate:[AuthGuard]},

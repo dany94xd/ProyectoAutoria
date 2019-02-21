@@ -82,7 +82,7 @@ async function sendMail2(user, callback) {
     html: `<h1>Hola ${user.name}</h1><br>
 
     
-    <h4>Su compra ha sido confirmada</h4><p>Su numero de asientos comprados es: ${user.asiento}</p>`
+    <h4>Su reserva ha sido confirmada</h4><p>Su numero de asientos reservados es: ${user.asiento}. Tiene 24 horas para realizar su pago.</p>`
   };
   
   // send mail with defined transport object

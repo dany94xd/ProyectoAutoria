@@ -21,10 +21,14 @@
           </div>
     </div>
     <br>
+    <div style ="text-align: center">
   <div class="w3-container">
 
     <div class="jumbotron text-justify" (click)="ngOnInit">
+
+      
        <!-- Utilizamos ngFor para recorrer el array -->
+
        <ul>
           <li *ngFor="let fila of filas">
               <p>FILA: {{fila["fila"]}}</p>
@@ -53,16 +57,17 @@
          
          <!-- Grid column -->
 
-         <span id="canasientos">CANTIDAD DE ASIENTOS: {{cantidad}} </span>
-  
+         <h2  id="canasientos" class="h1-responsive font-weight-bold my-5">CANTIDAD DE ASIENTOS: {{cantidad}}</h2>
          
 
     </div>
     
     
   </div>
-  <button class="btn-primary" (click)="enviarMail2(user.name,user.email,cantidad)">Confirmar</button>
-    <br>
+  
+  <button type="button" class="btn-primary" (click)="enviarMail2(user.name,user.email,cantidad)">Confirmar</button>
+</div>
+  <br>
 <br>
       
     
