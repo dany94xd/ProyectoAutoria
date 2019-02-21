@@ -33,7 +33,7 @@ export class ListTicketsComponent implements OnInit {
     this.dataApiService.selectedTicket = Object.assign({}, ticket);
   }
 
-  resetForm(eventoForm?: NgForm): void {
+  resetForm(ticketForm?: NgForm): void {
     this.dataApiService.selectedTicket = {
       id: null,
       idticket:'',  

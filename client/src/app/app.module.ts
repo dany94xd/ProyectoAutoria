@@ -78,7 +78,7 @@ import { ListUsersComponent } from './components/admin/list-users/list-users.com
     ListAsientosComponent,
     ListBloquesComponent,    
     ListTicketsComponent, 
-    FormComponent, ListUsersComponent
+    FormComponent, ListUsersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,NgxSpinnerModule, NgxPaginationModule, AngularFontAwesomeModule, MDBBootstrapModule.forRoot()],
   providers: [DataApiService],

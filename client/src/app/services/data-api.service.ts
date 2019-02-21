@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import {BookInterface } from '../models/book-interface';
 import {TarifaInterface} from '../models/tarifa-interface';
 import {FilaInterface} from '../models/fila-interface';
-import { AsientoInterface } from '../models/asiento-interface';
+import {AsientoInterface } from '../models/asiento-interface';
 
 
 import { AuthService } from './auth.service';
@@ -20,8 +20,7 @@ import { PrecioInterface } from '../models/precio-interface';
 import { BloqueInterface } from '../models/bloque-interface';
 
 import { TicketInterface } from '../models/ticket-interface';
-import { UserInterface } from '../models/user-interface';
-
+import{UserInterface} from '../models/user-interface'
 
 
 @Injectable({
@@ -61,11 +60,11 @@ fila:Observable<any>;
 tickets:Observable<any>;
 ticket:Observable<any>;
 
-usuarios:Observable<any>;
-usuario:Observable<any>;
+user:Observable<any>;
+users:Observable<any>;
 
 
-  public selectedBook: BookInterface = {
+public selectedBook: BookInterface = {
     id: null,
     titulo: '',
     idioma: '',
@@ -149,24 +148,6 @@ usuario:Observable<any>;
     codigo:''
   };
 
-
-  public selectedUsuario:UserInterface={
-    id:null,
-    name:'',
-    email:'',
-    password:'',
-    tipo:'',
-    idusuario:'',
-    edad:''
-    
-    
-
-  }
-
-
-
-
-
   public selectedAsiento:AsientoInterface={
     id: null,
     idasiento:'',
@@ -174,6 +155,12 @@ usuario:Observable<any>;
     nombre:''
   };
 
+  public selectedUser:UserInterface={
+    id:null,
+    name:'',
+    email:'',
+    password:''
+  };
 
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -233,10 +220,12 @@ getAllTickets(){
   return this.http.get(url_api);
 }
 
-getAllUsuarios(){
-  const url_api= `http://localhost:3000/api/usuarios`;
+getAllUsers(){
+  const url_api= `http://localhost:3000/api/users`;
   return this.http.get(url_api);
 }
+
+
 
 ///////////////////////////////////////////////////////////////////////////////7
 //metodo traer select de ofertas
@@ -304,10 +293,11 @@ getAsientoById(id:string){
   return (this.asientos = this.http.get(url_api))
 }
 
-getUsuarioById(id:string){
-  const url_api=`http://localhost:3000/api/usuarios/${id}`;
-  return (this.usuarios = this.http.get(url_api))
+getUserById(id:string){
+  const url_api=`http://localhost:3000/api/users/${id}`;
+  return (this.users = this.http.get(url_api))
 }
+
 
 
 ////////////////////////////////////////////////////////////
@@ -397,14 +387,15 @@ getUsuarioById(id:string){
     .pipe(map(data=>data));
   }
 
-  saveUsuarios(usuario:UserInterface){
+  saveUser(user:UserInterface){
     const token = this.authService.getToken();
-    const url_api = `http://localhost:3000/api/usuarios?access_token=${token}`;
+    const url_api = `http://localhost:3000/api/users?access_token=${token}`;
     return this.http
-    .post<UserInterface>(url_api,usuario,{headers:this.headers})
+    .post<UserInterface>(url_api,user,{headers:this.headers})
     .pipe(map(data=>data));
   }
 
+ 
 
 ////////////////////////////////////////////////////////////////////////////
 // metodo put actualizar tablas
@@ -502,13 +493,12 @@ updateTicket(ticket){
   .pipe(map(data=>data));
 }
 
-
-updateUsuarios(usuario){
-  const usuarioId= usuario.usuarioId;
+updateUser(user){
+  const userId= user.userId;
   const token= this.authService.getToken();
-  const url_api=`http://localhost:3000/api/usuarios/${usuarioId}/?access_token=${token}`;
+  const url_api=`http://localhost:3000/api/tickets/${userId}/?access_token=${token}`;
   return this.http
-  .put<UserInterface>(url_api,usuario ,{headers:this.headers})
+  .put<UserInterface>(url_api,user ,{headers:this.headers})
   .pipe(map(data=>data));
 }
 
@@ -604,14 +594,15 @@ deleteTicket(id:string){
   .pipe(map(data=>data));
 }
 
-deleteUsuario(id:string){
+
+
+deleteUser(id:string){
   const token = this.authService.getToken();
-  const url_api = `http://localhost:3000/api/usuarios/${id}/?access_token=${token}`;
+  const url_api = `http://localhost:3000/api/users/${id}/?access_token=${token}`;
   return this.http
   .delete<UserInterface>(url_api,{headers:this.headers})
   .pipe(map(data=>data));
 }
-
 
 
 sendEmail(url, data) {
