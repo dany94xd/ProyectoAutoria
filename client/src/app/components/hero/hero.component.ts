@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import{EventoInterface} from "../../models/evento-interface";
+import { DataApiService } from "src/app/services/data-api.service";
 
 @Component({
   selector: 'app-hero',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  constructor() { }
+  private eventos:EventoInterface;
+
+  constructor(private dataApi: DataApiService) { }
 
   ngOnInit() {
+
+    this.getListEventos();
+  }
+
+
+  getListEventos(){
+    this.dataApi
+    .getAllEventos()
+    .subscribe((eventos:EventoInterface)=>(this.eventos = eventos));
+   // .subscribe((eventos:EventoInterface)=>(this.eventos=eventos));
   }
 
 }
